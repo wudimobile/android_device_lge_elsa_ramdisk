@@ -1,0 +1,8 @@
+base:0x80000000
+ramdisk_addr:0x82200000
+second_addr:0x80f00000
+tags_addr:0x80000100
+page_size:0x1000
+name:
+cmdline:console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.hardware=elsa
+padding_size:0x1000

@@ -1,0 +1,76 @@
+on init
+    exec u:r:setup_fs:s0 -- /sbin/setup_fs_static \
+        /dev/block/bootdevice/by-name/eri \
+        /dev/block/bootdevice/by-name/operatorlogging \
+        /dev/block/bootdevice/by-name/persdata \
+        no_reboot
+
+on fs
+    mkdir /eri 0771 system radio
+    wait /dev/block/bootdevice/by-name/eri
+    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/eri
+    mount ext4 /dev/block/bootdevice/by-name/eri /eri nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
+
+    mkdir /vzw 0755 system system
+    mkdir /vzw/quality 0755 system system
+    wait /dev/block/bootdevice/by-name/operatorlogging
+    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/operatorlogging
+    mount ext4 /dev/block/bootdevice/by-name/operatorlogging /vzw/quality nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
+
+    mkdir /persdata 0750 system system
+    mkdir /persdata/absolute 0750 system system
+    wait /dev/block/bootdevice/by-name/persdata
+    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persdata
+    mount ext4 /dev/block/bootdevice/by-name/persdata /persdata/absolute nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
+    restorecon_recursive /persdata/absolute
+
+on post-fs-data
+    chown system radio /eri
+    chmod 771 /eri
+    chown system system /vzw/quality
+    chmod 755 /vzw/quality
+
+    chown system system /persdata/absolute
+    chmod 750 /persdata/absolute
+
+    # NFC: create data/nfc for nv storage
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
+
+# LGP_DATA_APN_APN2_ENABLE_BACKUP_RESTORE_VZW
+    mkdir /persist-lg/apn2 0770 system system
+
+#LGVPN 3.4
+on post-fs
+    mkdir /data/misc/vpnclientd 0770 system system
+    insmod /sbin/lgecrypto_module.ko
+
+service vpnclientd /system/bin/vpnclientd
+    class main
+    socket vpnclientd seqpacket 0600 system system
+    user system
+    group system net_admin inet net_raw
+    disabled
+
+on property:service.vpnclientd.enable=1
+    start vpnclientd
+on property:service.vpnclientd.enable=0
+    stop vpnclientd
+#END
+# LGE IMS Features - To interwork with QMI WMS (64-bit exe/lib)
+service imswmsproxy /system/bin/imswmsproxy
+    class main
+    user system
+    group radio system net_admin net_raw
+
+# LGE IMS Features - LGIMS ipsec solution [START]
+    service ipsecclient /system/bin/ipsecclient
+        class main
+        group system net_admin net_raw
+        disabled
+
+    service ipsecstarter /system/bin/ipsecstarter
+        class main
+        user system
+        group system net_admin net_raw
+# LGE IMS Features -LGIMS ipsec solution [END]

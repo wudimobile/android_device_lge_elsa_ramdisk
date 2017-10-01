@@ -1,0 +1,101 @@
+dir acct 0755
+slink bugreports /data/user_de/0/com.android.shell/files/bugreports 0644
+dir cache 0770
+slink charger /sbin/healthd 0644
+dir config 0500
+slink d /sys/kernel/debug 0644
+dir data 0771
+file default.prop initrd/default.prop 0644
+dir dev 0755
+slink etc /system/etc 0644
+dir ffu 0755
+file ffu/FFUSKHYNIX_H28U74301AMR_E005.BIN initrd/ffu\FFUSKHYNIX_H28U74301AMR_E005.BIN 0644
+file file_contexts.bin initrd/file_contexts.bin 0644
+file fstab.elsa initrd/fstab.elsa 0640
+file fstab.fota initrd/fstab.fota 0640
+file init initrd/init 0750
+file init.class_main.sh initrd/init.class_main.sh 0750
+file init.elsa.power.rc initrd/init.elsa.power.rc 0750
+file init.elsa.rc initrd/init.elsa.rc 0750
+file init.elsa_core.rc initrd/init.elsa_core.rc 0750
+file init.elsa_product.rc initrd/init.elsa_product.rc 0750
+file init.environ.rc initrd/init.environ.rc 0750
+file init.lge.atd.rc initrd/init.lge.atd.rc 0750
+file init.lge.audio.rc initrd/init.lge.audio.rc 0750
+file init.lge.early.rc initrd/init.lge.early.rc 0750
+file init.lge.fingerprints.rc initrd/init.lge.fingerprints.rc 0750
+file init.lge.fs.rc initrd/init.lge.fs.rc 0750
+file init.lge.ima.rc initrd/init.lge.ima.rc 0750
+file init.lge.log.rc initrd/init.lge.log.rc 0750
+file init.lge.modem_log.rc initrd/init.lge.modem_log.rc 0750
+file init.lge.power.rc initrd/init.lge.power.rc 0750
+file init.lge.rc initrd/init.lge.rc 0750
+file init.lge.sensors.rc initrd/init.lge.sensors.rc 0750
+file init.lge.svelte.rc initrd/init.lge.svelte.rc 0750
+file init.lge.usb.default.sh initrd/init.lge.usb.default.sh 0750
+file init.lge.usb.rc initrd/init.lge.usb.rc 0750
+file init.lge.usb.sh initrd/init.lge.usb.sh 0750
+file init.lge.vrhid.rc initrd/init.lge.vrhid.rc 0750
+file init.msm8996.crash.sh initrd/init.msm8996.crash.sh 0750
+file init.msm8996_core.rc initrd/init.msm8996_core.rc 0750
+file init.qcom.class_core.sh initrd/init.qcom.class_core.sh 0750
+file init.qcom.factory.rc initrd/init.qcom.factory.rc 0750
+file init.qcom.rc initrd/init.qcom.rc 0750
+file init.qcom.sensors.sh initrd/init.qcom.sensors.sh 0750
+file init.qcom.sh initrd/init.qcom.sh 0750
+file init.rc initrd/init.rc 0750
+file init.target.rc initrd/init.target.rc 0750
+file init.time_in_state.sh initrd/init.time_in_state.sh 0750
+file init.usb.configfs.rc initrd/init.usb.configfs.rc 0750
+file init.usb.rc initrd/init.usb.rc 0750
+file init.zygote32.rc initrd/init.zygote32.rc 0750
+file init.zygote64_32.rc initrd/init.zygote64_32.rc 0750
+file lge.fota.rc initrd/lge.fota.rc 0644
+file lge.fota.update.rc initrd/lge.fota.update.rc 0644
+dir mnt 0755
+dir oem 0755
+dir proc 0755
+file property_contexts initrd/property_contexts 0644
+dir res 0755
+dir res/images 0755
+dir res/images/charger 0755
+file res/images/charger/battery_fail.png initrd/res\images\charger\battery_fail.png 0644
+file res/images/charger/battery_scale.png initrd/res\images\charger\battery_scale.png 0644
+dir sbin 0750
+file sbin/adbd initrd/sbin\adbd 0750
+file sbin/bnrd initrd/sbin\bnrd 0750
+file sbin/chargerlogo initrd/sbin\chargerlogo 0750
+file sbin/e2fsck_static initrd/sbin\e2fsck_static 0750
+file sbin/gzipelix initrd/sbin\gzipelix 0750
+file sbin/healthd initrd/sbin\healthd 0750
+file sbin/lge_fota initrd/sbin\lge_fota 0750
+file sbin/lge_fota_launcher initrd/sbin\lge_fota_launcher 0750
+file sbin/lge_gota_launcher initrd/sbin\lge_gota_launcher 0750
+file sbin/lgecrypto_module.hmac initrd/sbin\lgecrypto_module.hmac 0750
+file sbin/lgecrypto_module.ko initrd/sbin\lgecrypto_module.ko 0750
+file sbin/lz4elix initrd/sbin\lz4elix 0750
+file sbin/lzop initrd/sbin\lzop 0750
+file sbin/lzopelix initrd/sbin\lzopelix 0750
+file sbin/make_ext4fs_static initrd/sbin\make_ext4fs_static 0750
+file sbin/pub initrd/sbin\pub 0750
+file sbin/rctd initrd/sbin\rctd 0750
+file sbin/setup_fs_static initrd/sbin\setup_fs_static 0750
+file sbin/sreadahead_check initrd/sbin\sreadahead_check 0750
+file sbin/treadahead initrd/sbin\treadahead 0750
+slink sbin/ueventd ../init 0750
+file sbin/wallpaper initrd/sbin\wallpaper 0750
+slink sbin/watchdogd ../init 0750
+slink sdcard /storage/self/primary 0644
+file seapp_contexts initrd/seapp_contexts 0644
+file selinux_version initrd/selinux_version 0644
+file sepolicy initrd/sepolicy 0644
+file service_contexts initrd/service_contexts 0644
+file set_emmc_size.sh initrd/set_emmc_size.sh 0644
+file set_soc_info.sh initrd/set_soc_info.sh 0644
+dir storage 0751
+dir sys 0755
+dir system 0755
+file ueventd.elsa.rc initrd/ueventd.elsa.rc 0644
+file ueventd.rc initrd/ueventd.rc 0644
+slink vendor /system/vendor 0644
+file verity_key initrd/verity_key 0644
