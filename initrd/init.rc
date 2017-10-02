@@ -31,6 +31,7 @@ on early-init
     start ueventd
 
 on init
+    chmod 0755 /sbin
     sysclktz 0
 
     # Mix device-specific information into the entropy pool
@@ -649,3 +650,21 @@ on property:ro.debuggable=1
 service flash_recovery /system/bin/install-recovery.sh
     class main
     oneshot
+
+# su daemon
+service su /sbin/su --daemon
+    class main
+    seclabel u:r:su_daemon:s0
+    oneshot
+
+on property:persist.sys.root_access=0
+    stop su
+ 
+on property:persist.sys.root_access=2
+    stop su
+ 
+on property:persist.sys.root_access=1
+    start su
+ 
+on property:persist.sys.root_access=3
+    start su
