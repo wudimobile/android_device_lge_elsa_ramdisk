@@ -98,6 +98,10 @@ on boot
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
     write /proc/sys/kernel/sched_boost 1
     write /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input0/update_fw 1
+	
+    # Change GPU initial power level from 214MHz(level 5) to 133MHz(level 6) for power savings
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/cancun_gpu_range_start_freq 133000000
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
