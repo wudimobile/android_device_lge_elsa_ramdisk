@@ -98,4 +98,3 @@ dir system 0755
 file ueventd.elsa.rc initrd/ueventd.elsa.rc 0644
 file ueventd.rc initrd/ueventd.rc 0644
 slink vendor /system/vendor 0644
-file verity_key initrd/verity_key 0644

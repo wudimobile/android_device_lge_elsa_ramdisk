@@ -18,7 +18,6 @@ on post-fs
     mkdir /persist-lg/kmstore 0770 system system
 
     #USE_SECUREBOOT
-    verity_update_state
     determine_run_wallpaper
 
     #QFUSE
