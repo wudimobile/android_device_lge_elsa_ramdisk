@@ -420,7 +420,6 @@ sys.navibar.                    u:object_r:system_navibar_prop:s0
 sys.radio.gpri.complete         u:object_r:system_radio_gpri_prop:s0
 sys.usb.provisioned             u:object_r:system_lge_prop:s0
 sys.usb.rps_mask                u:object_r:usb_config_prop:s0
-tdmb.mode.on                    u:object_r:system_prop:s0
 upgrade.mpdn.db           u:object_r:radio_prop:s0
 usb.authorized            u:object_r:usb_authorized_prop:s0
 usb_uicc.loading                 u:object_r:uicc_loading_prop:s0

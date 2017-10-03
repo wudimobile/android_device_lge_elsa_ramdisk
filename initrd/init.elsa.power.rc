@@ -84,12 +84,6 @@ on property:persist.sys.store_demo_enabled=1
 on property:persist.sys.store_demo_enabled=0
    write /sys/class/lge_power/lge_sm/store_demo_enabled 0
 
-# tdmb mode
-on property:tdmb.mode.on=1
-   write /sys/class/lge_power/lge_cc/tdmb_mode_on 1
-on property:tdmb.mode.on=0
-   write /sys/class/lge_power/lge_cc/tdmb_mode_on 0
-
 # fuel gauge dumper for debug
 service fg-dump /system/bin/sh /system/etc/fg_dump.sh 10 /data/logger/fg.log
    user root
