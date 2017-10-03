@@ -121,7 +121,6 @@ cnap.oic                         u:object_r:cnap_prop:s0
 cnap.yh                          u:object_r:cnap_prop:s0
 com.google.clientidbase   u:object_r:clientidbase_prop:s0
 com.lge.splink_screen_off        u:object_r:splink_prop:s0
-config.zram                      u:object_r:config_zram_prop:s0
 conup                     u:object_r:system_prop:s0
 ctl.Aat_audio          u:object_r:minios_prop:s0
 ctl.Aat_auto_detect    u:object_r:minios_prop:s0

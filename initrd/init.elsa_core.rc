@@ -26,7 +26,6 @@
 #
 
 import /init.elsa_product.rc
-import /init.lge.svelte.rc
 
 # 2015-10-12 protocol-iwlan@lge.com LGP_DATA_IWLAN [START]
 import /init.lge.iwlan.rc

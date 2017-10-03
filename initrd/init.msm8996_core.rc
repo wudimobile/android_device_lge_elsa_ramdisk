@@ -53,7 +53,6 @@ on init
 
 on fs
     mount_all fstab.${ro.hardware}
-    swapon_all fstab.${ro.hardware}
 
     wait /dev/block/bootdevice/by-name/persist
     exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persist

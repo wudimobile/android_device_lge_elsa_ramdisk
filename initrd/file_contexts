@@ -16,7 +16,6 @@
 /dev/block/loop[0-9]*		u:object_r:loop_device:s0
 /dev/block/vold/.+		u:object_r:vold_device:s0
 /dev/block/ram[0-9]*		u:object_r:ram_device:s0
-/dev/block/zram[0-9]*		u:object_r:ram_device:s0
 /dev/bus/usb(.*)?		u:object_r:usb_device:s0
 /dev/cpuctl(/.*)?		u:object_r:cpuctl_device:s0
 /dev/fscklogs(/.*)?		u:object_r:fscklogs:s0
@@ -138,8 +137,6 @@
 /data/cache/backup_stage(/.*)?		u:object_r:cache_backup_file:s0
 /data/cache/backup(/.*)?		u:object_r:cache_private_backup_file:s0
 /sys/devices/system/cpu(/.*)?		u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/virtual/block/zram\d+(/.*)?		u:object_r:sysfs_zram:s0
-/sys/devices/virtual/block/zram\d+/uevent		u:object_r:sysfs_zram_uevent:s0
 /sys/devices/virtual/misc/hw_random(/.*)?		u:object_r:sysfs_hwrandom:s0
 /sys/module/lowmemorykiller(/.*)?	--	u:object_r:sysfs_lowmemorykiller:s0
 /sys/kernel/debug/tracing(/.*)?		u:object_r:debugfs_tracing:s0
@@ -268,8 +265,6 @@
 /data/dontpanic(/.*)?		u:object_r:dontpanic_data_file:s0
 /system/bin/oem(.*)test		u:object_r:sectest_exec:s0
 /data/qdss/qdss.agent.sh		u:object_r:qdss_agent_data_file:s0
-/sys/block/zram[0-9]*/compact		u:object_r:sysfs_block_zram_compact:s0
-/sys/block/zram[0-9]*/disksize		u:object_r:sysfs_block_zram_disksize:s0
 /dev/socket/mtsd.port		u:object_r:mts_socket:s0
 /dev/socket/fpce(/.*)?		u:object_r:fpcd_socket:s0
 /persist-lg/fota(/.*)?		u:object_r:fota_data_file:s0
@@ -353,7 +348,6 @@
 /data/system/time(/.*)?		u:object_r:time_system_data_file:s0
 /persist/data/sfs(/.*)?		u:object_r:persist_drm_file:s0
 /persist/hlos_rfs(/.*)?		u:object_r:rfs_shared_hlos_file:s0
-/data/system/swap(/.*)?		u:object_r:swap_data_file:s0
 /data/system/lgis(/.*)?		u:object_r:lgis_data_file:s0
 /data/misc/osaifu(/.*)?		u:object_r:osaifu_data_file:s0
 /data/misc/sensor(/.*)?		u:object_r:system_sensor_data_file:s0
@@ -931,7 +925,6 @@
 /dev/ccid_bridge		u:object_r:usb_uicc_device:s0
 /dev/ipaNatTable		u:object_r:ipa_dev:s0
 /dev/socket/nims		u:object_r:cnd_socket:s0
-/dev/block/zram0		u:object_r:swap_block_device:s0
 /system/bin/dpmd		u:object_r:dpmd_exec:s0
 /system/bin/sapd		u:object_r:sapd_exec:s0
 /dev/socket/dpmd		u:object_r:dpmd_socket:s0
