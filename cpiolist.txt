@@ -78,7 +78,6 @@ file sbin/lzop initrd/sbin\lzop 0750
 file sbin/lzopelix initrd/sbin\lzopelix 0750
 file sbin/make_ext4fs_static initrd/sbin\make_ext4fs_static 0750
 file sbin/pub initrd/sbin\pub 0750
-file sbin/rctd initrd/sbin\rctd 0750
 file sbin/setup_fs_static initrd/sbin\setup_fs_static 0750
 file sbin/sreadahead_check initrd/sbin\sreadahead_check 0750
 file sbin/treadahead initrd/sbin\treadahead 0750
