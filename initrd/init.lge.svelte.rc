@@ -27,15 +27,6 @@ service zramswapoff /system/bin/logwrapper /system/bin/sh /system/etc/init.lge.z
 #disabled
 #oneshot
 
-#
-# The below is not only the project "Svelte", but also LGE's feature-added svelte.
-#
-on property:ro.boot.ksm=1
-	# Configure and enable KSM
-	write /sys/kernel/mm/ksm/pages_to_scan 100
-	write /sys/kernel/mm/ksm/sleep_millisecs 500
-	write /sys/kernel/mm/ksm/run 1
-
 #on property:sys.boot_completed=1
 on boot
 	# initialize zram/swap
