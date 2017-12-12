@@ -1,4 +1,4 @@
-#context version 4
+# Context version 4
 /fstab\..*		u:object_r:rootfs:s0
 /init\..*		u:object_r:rootfs:s0
 /res(/.*)?		u:object_r:rootfs:s0
@@ -183,7 +183,6 @@
 /data/time(/.*)?		u:object_r:time_data_file:s0
 /data/moca(/.*)?		u:object_r:moca_data_file:s0
 /data/font(/.*)?		u:object_r:font_data_file:s0
-/data/fota(/.*)?		u:object_r:fota_data_file:s0
 /dev/pipes(/.*)?		u:object_r:immvibed_device:s0
 /dev/media([0-9])+		u:object_r:video_device:s0
 /system/rfs.*		u:object_r:rfs_system_file:s0
