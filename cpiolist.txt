@@ -10,7 +10,6 @@ dir dev 0755
 slink etc /system/etc 0644
 file file_contexts.bin initrd/file_contexts.bin 0644
 file fstab.elsa initrd/fstab.elsa 0640
-file fstab.fota initrd/fstab.fota 0640
 file init initrd/init 0750
 file init.class_main.sh initrd/init.class_main.sh 0750
 file init.elsa.power.rc initrd/init.elsa.power.rc 0750
@@ -47,8 +46,6 @@ file init.usb.configfs.rc initrd/init.usb.configfs.rc 0750
 file init.usb.rc initrd/init.usb.rc 0750
 file init.zygote32.rc initrd/init.zygote32.rc 0750
 file init.zygote64_32.rc initrd/init.zygote64_32.rc 0750
-file lge.fota.rc initrd/lge.fota.rc 0644
-file lge.fota.update.rc initrd/lge.fota.update.rc 0644
 dir mnt 0755
 dir oem 0755
 dir proc 0755
@@ -62,18 +59,9 @@ dir sbin 0750
 file sbin/adbd initrd/sbin\adbd 0750
 file sbin/bnrd initrd/sbin\bnrd 0750
 file sbin/chargerlogo initrd/sbin\chargerlogo 0750
-file sbin/e2fsck_static initrd/sbin\e2fsck_static 0750
-file sbin/gzipelix initrd/sbin\gzipelix 0750
 file sbin/healthd initrd/sbin\healthd 0750
-file sbin/lge_fota initrd/sbin\lge_fota 0750
-file sbin/lge_fota_launcher initrd/sbin\lge_fota_launcher 0750
-file sbin/lge_gota_launcher initrd/sbin\lge_gota_launcher 0750
 file sbin/lgecrypto_module.hmac initrd/sbin\lgecrypto_module.hmac 0750
 file sbin/lgecrypto_module.ko initrd/sbin\lgecrypto_module.ko 0750
-file sbin/lz4elix initrd/sbin\lz4elix 0750
-file sbin/lzop initrd/sbin\lzop 0750
-file sbin/lzopelix initrd/sbin\lzopelix 0750
-file sbin/make_ext4fs_static initrd/sbin\make_ext4fs_static 0750
 file sbin/pub initrd/sbin\pub 0750
 file sbin/setup_fs_static initrd/sbin\setup_fs_static 0750
 file sbin/sreadahead_check initrd/sbin\sreadahead_check 0750

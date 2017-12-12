@@ -267,7 +267,6 @@
 /data/qdss/qdss.agent.sh		u:object_r:qdss_agent_data_file:s0
 /dev/socket/mtsd.port		u:object_r:mts_socket:s0
 /dev/socket/fpce(/.*)?		u:object_r:fpcd_socket:s0
-/persist-lg/fota(/.*)?		u:object_r:fota_data_file:s0
 /data/misc/radio(/.*)?		u:object_r:radio_data_file:s0
 /data/misc/seemp(/.*)?		u:object_r:seemp_file:s0
 /data/misc/qlogd(/.*)?		u:object_r:qlogd_data_file:s0
@@ -868,7 +867,6 @@
 /dev/snfc_cen		u:object_r:nfcfelica_device:s0
 /dev/snfc_rfs		u:object_r:nfcfelica_device:s0
 /dev/bcm2079x		u:object_r:nfc_device:s0
-/sbin/lz4elix		u:object_r:lg_fotafs:s0
 /dev/block/sda		u:object_r:sda_block_device:s0
 /dev/block/sdc		u:object_r:sdc_block_device:s0
 /dev/block/sdd		u:object_r:sdd_block_device:s0
@@ -990,7 +988,6 @@
 /system/bin/iwland		u:object_r:iwland_exec:s0
 /system/bin/ipsecd		u:object_r:ipsecd_exec:s0
 /system/bin/ntfsck		u:object_r:fsck_exec:s0
-/lge_fota_launcher		u:object_r:lg_fotafs:s0
 /dev/socket/wod_sim		u:object_r:ipsecd_socket:s0
 /dev/ks_hsic_bridge		u:object_r:ksbridgehsic_device:s0
 /system/bin/secotad		u:object_r:secotad_exec:s0
@@ -1036,7 +1033,6 @@
 /system/bin/presslog		u:object_r:presslog_exec:s0
 /system/bin/backoffd		u:object_r:backoffd_exec:s0
 /system/bin/eut_init		u:object_r:eut_init_exec:s0
-/cache/fota/lge_fota		u:object_r:fota_exec:s0
 /system/bin/ParserApp		u:object_r:sectest_exec:s0
 /system/bin/lowi_test		u:object_r:location_exec:s0
 /dev/socket/wod_ipsec		u:object_r:ipsecd_socket:s0

@@ -268,7 +268,6 @@ ctl.wpa_supplicant     u:object_r:minios_prop:s0
 dalvik.vm.dex2oat-filter         u:object_r:dalvik_dex2oat_prop:s0
 dalvik.vm.image-dex2oat-filter   u:object_r:dalvik_dex2oat_prop:s0
 dev.bootcomplete       u:object_r:minios_prop:s0
-fota.log                         u:object_r:fota_prop:s0
 frstd.ctrl.run            u:object_r:frstd_prop:s0
 fw.max_users              u:object_r:multiuser_prop:s0
 hw.camcorder.fpsrange     u:object_r:camcorder_prop:s0
@@ -311,7 +310,6 @@ persist.boot.first    u:object_r:persist_boot_first_prop:s0
 persist.call.imsservicestate     u:object_r:imsservicestate_prop:s0
 persist.camera.snapshot.number   u:object_r:camera_snapshot_prop:s0
 persist.camera.tcc_aat           u:object_r:qualcomm_camera_prop:s0
-persist.configurationver         u:object_r:fota_prop:s0
 persist.data.eut.         u:object_r:persist_eut_prop:s0
 persist.data.iwlan.enable        u:object_r:persist_iwlan_prop:s0
 persist.data.lgetest.0    u:object_r:persist_data_lgetest_prop:s0
@@ -416,7 +414,6 @@ user.region                      u:object_r:system_prop:s0
 vr.perfd.controller.start        u:object_r:vr_prop:s0
 wifi.country.code                u:object_r:wifi_prop:s0
 wifi.lge.assoclistsize           u:object_r:wifi_prop:s0
-wifi.lge.fota_updated            u:object_r:wifi_prop:s0
 wifi.lge.ssr                     u:object_r:wifi_prop:s0
 wifi.lge.supportp2p5g            u:object_r:dhcp_prop:s0
 wifi_ftm.diagd_start             u:object_r:wifi_prop:s0
