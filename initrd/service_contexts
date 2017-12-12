@@ -1,4 +1,3 @@
-#line 1 "system/sepolicy/service_contexts"
 accessibility                             u:object_r:accessibility_service:s0
 account                                   u:object_r:account_service:s0
 activity                                  u:object_r:activity_service:s0
@@ -20,8 +19,8 @@ carrier_config                            u:object_r:radio_service:s0
 clipboard                                 u:object_r:clipboard_service:s0
 com.android.net.IProxyService             u:object_r:IProxyService_service:s0
 commontime_management                     u:object_r:commontime_management_service:s0
-common_time.clock                        u:object_r:mediaserver_service:s0
-common_time.config                       u:object_r:mediaserver_service:s0
+common_time.clock                         u:object_r:mediaserver_service:s0
+common_time.config                        u:object_r:mediaserver_service:s0
 connectivity                              u:object_r:connectivity_service:s0
 consumer_ir                               u:object_r:consumer_ir_service:s0
 content                                   u:object_r:content_service:s0
@@ -146,9 +145,7 @@ wifiscanner                               u:object_r:wifiscanner_service:s0
 wifi                                      u:object_r:wifi_service:s0
 window                                    u:object_r:window_service:s0
 *                                         u:object_r:default_android_service:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
-#line 1 "device/lge/common/sepolicy/service_contexts"
 ABTPersistenceService         u:object_r:abt_persistence_service:s0
 AAT                           u:object_r:lge_system_server_service:s0
 BTFM                          u:object_r:btfm_service:s0
@@ -253,9 +250,7 @@ wifiLgeExtService             u:object_r:lge_system_server_service:s0
 wifiOffloadingService         u:object_r:lge_system_server_service:s0
 wifiSapService                u:object_r:lge_system_server_service:s0
 callfwDebugService            u:object_r:radio_service:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
-#line 1 "device/qcom/sepolicy/common/service_contexts"
 android.apps.IQfpService                       u:object_r:iqfp_service:s0
 AtCmdFwd                                       u:object_r:atfwd_service:s0
 dpmservice                                     u:object_r:dpmservice:s0
@@ -290,69 +285,7 @@ uce                                            u:object_r:uce_service:s0
 eSEPowerManagerService                         u:object_r:esepmdaemon_service:s0
 wigigp2p                                       u:object_r:wigigp2p_service:s0
 wigig                                          u:object_r:wigig_service:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/qcom/sepolicy/test/service_contexts"
-# Copyright (c) 2015, The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#       from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 com.qualcomm.qti.auth.securesampleauthdaemon   u:object_r:fidotest_service:s0
 com.qualcomm.qti.qseeproxysample               u:object_r:qseeproxysample_service:s0
-
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/qcom/sepolicy/msm8996/service_contexts"
-# Copyright (c) 2015, The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#       from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 android.apps.IQvopService             u:object_r:iqvop_service:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-

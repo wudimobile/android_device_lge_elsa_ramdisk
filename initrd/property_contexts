@@ -1,8 +1,4 @@
-#line 1 "system/sepolicy/property_contexts"
-##########################
 # property service keys
-#
-#
 net.rmnet               u:object_r:net_radio_prop:s0
 net.gprs                u:object_r:net_radio_prop:s0
 net.ppp                 u:object_r:net_radio_prop:s0
@@ -93,9 +89,6 @@ config.                 u:object_r:config_prop:s0
 ro.config.              u:object_r:config_prop:s0
 dalvik.                 u:object_r:dalvik_prop:s0
 ro.dalvik.              u:object_r:dalvik_prop:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/lge/common/sepolicy/property_contexts"
 
 wifiminid.anytime_connect	u:object_r:minios_prop:s0
 wifiminid.anytime_pw		u:object_r:minios_prop:s0
@@ -209,32 +202,28 @@ ro.minios.enable        u:object_r:minios_prop:s0
 vzw.os.rooted          u:object_r:vzw_rooted_prop:s0
 w_mid.force_terminate  u:object_r:minios_prop:s0
 w_mid.status           u:object_r:minios_prop:s0
-##
 
 # bootanim_prop
 service.bootanim.begin     u:object_r:bootanim_prop:s0
 service.bootanim.exit     u:object_r:bootanim_prop:s0
 service.shutdownanim.exit     u:object_r:bootanim_prop:s0
-###
 
 # bluetooth_prop
 service.bdroid.           u:object_r:bluetooth_prop:s0
 persist.service.btui.     u:object_r:bluetooth_prop:s0
 service.brcm.bt.          u:object_r:bluetooth_prop:s0
 service.btui.             u:object_r:bluetooth_prop:s0
-###
 
 # properties for radio
 net.ims.operator u:object_r:net_radio_prop:s0
 net.ims.country  u:object_r:net_radio_prop:s0
 persist.lge.prop_copy.done     u:object_r:net_radio_prop:s0
 ro.cdma.home.operator.alpha    u:object_r:net_radio_prop:s0
-###
 
 # dumprepoter_prop
 ctl.Aat_result         u:object_r:minios_prop:s0
 ctl.charger_monitor    u:object_r:ctl_charger_monitor_prop:s0
-ctl.digicl    u:object_r:ctl_digicl_prop:s0
+ctl.digicl                u:object_r:ctl_digicl_prop:s0
 ctl.dumpreporter          u:object_r:ctl_dumpreporter_prop:s0
 ctl.decryptwipe           u:object_r:ctl_decryptwipe_prop:s0
 ctl.ipsecclient                 u:object_r:ctl_ipsec_prop:s0
@@ -391,79 +380,73 @@ pre.from.test                   u:object_r:pre_from_test_prop:s0
 pre.glo.value                   u:object_r:minios_prop:s0
 pre.gps.running                 u:object_r:minios_prop:s0
 pre.gps.value                    u:object_r:pre_gps_value_prop:s0
-pre.qr.display            u:object_r:pre_qr_display_prop:s0
-qrcode.img.size           u:object_r:minios_prop:s0
+pre.qr.display                   u:object_r:pre_qr_display_prop:s0
+qrcode.img.size                  u:object_r:minios_prop:s0
 radio.noril                      u:object_r:radio_noril_prop:s0
-ro.lge.suffix             u:object_r:lge_suffix_prop:s0
-sbp.bootanim              u:object_r:system_prop:s0
-sbp.lge.opname            u:object_r:system_prop:s0
-sbp.oppartition.          u:object_r:update_prop:s0
-selfd.                    u:object_r:selfd_prop:s0
-service.adb.     u:object_r:adb_prop:s0
-service.art.running     u:object_r:art_prop:s0
+ro.lge.suffix                    u:object_r:lge_suffix_prop:s0
+sbp.bootanim                     u:object_r:system_prop:s0
+sbp.lge.opname                   u:object_r:system_prop:s0
+sbp.oppartition.                 u:object_r:update_prop:s0
+selfd.                           u:object_r:selfd_prop:s0
+service.adb.                     u:object_r:adb_prop:s0
+service.art.running              u:object_r:art_prop:s0
 service.mex.play                 u:object_r:system_lge_prop:s0
 service.mex.progress             u:object_r:system_lge_prop:s0
 service.mex.wav                  u:object_r:system_lge_prop:s0
-service.plushome.currenthome    u:object_r:system_lge_prop:s0
-settings.knockon.test           u:object_r:knockon_prop:s0
-sys.aat.ldcal             u:object_r:minios_prop:s0
-sys.allautotest.rf.online u:object_r:minios_prop:s0
-sys.ara.applet.using      u:object_r:sys_ara_prop:s0
-sys.bluefactorymode    u:object_r:minios_prop:s0
-sys.boot_sound.off        u:object_r:boot_soundoff_prop:s0
-sys.camera_orientation    u:object_r:sys_camera_orientation_prop:s0
-sys.hdmi.                  u:object_r:sys_hdmi_prop:s0
-sys.ims.DATA_DAEMON_STATUS u:object_r:ims_prop:s0
-sys.lge.                        u:object_r:system_lge_prop:s0
-sys.navibar.                    u:object_r:system_navibar_prop:s0
-sys.radio.gpri.complete         u:object_r:system_radio_gpri_prop:s0
-sys.usb.provisioned             u:object_r:system_lge_prop:s0
-sys.usb.rps_mask                u:object_r:usb_config_prop:s0
-upgrade.mpdn.db           u:object_r:radio_prop:s0
-usb.authorized            u:object_r:usb_authorized_prop:s0
+service.plushome.currenthome     u:object_r:system_lge_prop:s0
+settings.knockon.test            u:object_r:knockon_prop:s0
+sys.aat.ldcal                    u:object_r:minios_prop:s0
+sys.allautotest.rf.online        u:object_r:minios_prop:s0
+sys.ara.applet.using             u:object_r:sys_ara_prop:s0
+sys.bluefactorymode              u:object_r:minios_prop:s0
+sys.boot_sound.off               u:object_r:boot_soundoff_prop:s0
+sys.camera_orientation           u:object_r:sys_camera_orientation_prop:s0
+sys.hdmi.                        u:object_r:sys_hdmi_prop:s0
+sys.ims.DATA_DAEMON_STATUS       u:object_r:ims_prop:s0
+sys.lge.                         u:object_r:system_lge_prop:s0
+sys.navibar.                     u:object_r:system_navibar_prop:s0
+sys.radio.gpri.complete          u:object_r:system_radio_gpri_prop:s0
+sys.usb.provisioned              u:object_r:system_lge_prop:s0
+sys.usb.rps_mask                 u:object_r:usb_config_prop:s0
+upgrade.mpdn.db                  u:object_r:radio_prop:s0
+usb.authorized                   u:object_r:usb_authorized_prop:s0
 usb_uicc.loading                 u:object_r:uicc_loading_prop:s0
-user.language                   u:object_r:system_prop:s0
-user.region                     u:object_r:system_prop:s0
-vr.perfd.controller.start       u:object_r:vr_prop:s0
-wifi.country.code         u:object_r:wifi_prop:s0
-wifi.lge.assoclistsize    u:object_r:wifi_prop:s0
+user.language                    u:object_r:system_prop:s0
+user.region                      u:object_r:system_prop:s0
+vr.perfd.controller.start        u:object_r:vr_prop:s0
+wifi.country.code                u:object_r:wifi_prop:s0
+wifi.lge.assoclistsize           u:object_r:wifi_prop:s0
 wifi.lge.fota_updated            u:object_r:wifi_prop:s0
 wifi.lge.ssr                     u:object_r:wifi_prop:s0
-wifi.lge.supportp2p5g           u:object_r:dhcp_prop:s0
-wifi_ftm.diagd_start      u:object_r:wifi_prop:s0
-wifi_ftm.wififtmd_start  u:object_r:wififtm_prop:s0
-wifi_ftm.wififtmd2_start  u:object_r:wififtm_prop:s0
-wlan.driver.status              u:object_r:wififtm_prop:s0
-wlan.cmcc.connect.type          u:object_r:system_prop:s0
-wlan.lge.siminserted            u:object_r:system_prop:s0
-wlan.monitor.status             u:object_r:wifi_prop:s0
+wifi.lge.supportp2p5g            u:object_r:dhcp_prop:s0
+wifi_ftm.diagd_start             u:object_r:wifi_prop:s0
+wifi_ftm.wififtmd_start          u:object_r:wififtm_prop:s0
+wifi_ftm.wififtmd2_start         u:object_r:wififtm_prop:s0
+wlan.driver.status               u:object_r:wififtm_prop:s0
+wlan.cmcc.connect.type           u:object_r:system_prop:s0
+wlan.lge.siminserted             u:object_r:system_prop:s0
+wlan.monitor.status              u:object_r:wifi_prop:s0
 
 # mdfpp prop
-persist.service.ccaudit.enable  u:object_r:mdfpp_prop:s0
-ro.sys.openssl.selftest.status  u:object_r:mdfpp_prop:s0
-ro.sys.sec.version.info         u:object_r:mdfpp_prop:s0
-sys.bc.selftest.status          u:object_r:mdfpp_prop:s0
-sys.openssl.selftest.status     u:object_r:mdfpp_prop:s0
+persist.service.ccaudit.enable   u:object_r:mdfpp_prop:s0
+ro.sys.openssl.selftest.status   u:object_r:mdfpp_prop:s0
+ro.sys.sec.version.info          u:object_r:mdfpp_prop:s0
+sys.bc.selftest.status           u:object_r:mdfpp_prop:s0
+sys.openssl.selftest.status      u:object_r:mdfpp_prop:s0
 
-# LGMDM [lge-mdm-dev@lge.com]
-sys.lge.lgmdm_version   u:object_r:system_prop:s0
-sys.lge.lgmdm_expr      u:object_r:system_prop:s0
 # LGMDM
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+sys.lge.lgmdm_version            u:object_r:system_prop:s0
+sys.lge.lgmdm_expr               u:object_r:system_prop:s0
 
-#line 1 "device/lge/common/sepolicy/qcom/property_contexts"
 # thermald prop
-persist.sys.thermald_miti_off  u:object_r:thermald_prop:s0
-###
+persist.sys.thermald_miti_off    u:object_r:thermald_prop:s0
 
 # bluetooth prop
 qualcomm.bt.                     u:object_r:bluetooth_prop:s0
-###
 
 # uicc_prop
 ctl_usb_uicc                     u:object_r:uicc_prop:s0
 usb_uicc.enabled                 u:object_r:uicc_prop:s0
-###
 
 # Etc qcom property
 ctl.dpmd                         u:object_r:ctl_dpmd_prop:s0
@@ -479,19 +462,17 @@ ro.hwui.texture_cache_size       u:object_r:hwui_texture_cache_size_prop:s0
 ro.qc.sdk.us.proximity           u:object_r:qc_sdk_prop:s0
 ro.soc_info                      u:object_r:soc_info_prop:s0
 wifi.lge.offloading.ongoing      u:object_r:offloading_ongoing_prop:s0
-###
 
 # camera_prop
-cwamera.4k2k.enable        u:object_r:camera_prop:s0
-persist.camera.ais.hal u:object_r:camera_prop:s0
-persist.camera.testvtcam  u:object_r:camera_prop:s0
+cwamera.4k2k.enable              u:object_r:camera_prop:s0
+persist.camera.ais.hal           u:object_r:camera_prop:s0
+persist.camera.testvtcam         u:object_r:camera_prop:s0
 persist.camera.zsl.queuedepth    u:object_r:camera_prop:s0
-persist.data.front.minfps u:object_r:camera_prop:s0
-persist.data.rear.minfps  u:object_r:camera_prop:s0
-persist.camera.use_ais u:object_r:camera_prop:s0
-sys.camera.hw_test_result u:object_r:camera_prop:s0
-sys.camera.pd_test.result u:object_r:camera_prop:s0
-###
+persist.data.front.minfps        u:object_r:camera_prop:s0
+persist.data.rear.minfps         u:object_r:camera_prop:s0
+persist.camera.use_ais           u:object_r:camera_prop:s0
+sys.camera.hw_test_result        u:object_r:camera_prop:s0
+sys.camera.pd_test.result        u:object_r:camera_prop:s0
 
 # ipsecd prop
 net.handover.flag          u:object_r:ipsecd_prop:s0
@@ -512,33 +493,6 @@ net.wo.statuscode          u:object_r:ipsecd_prop:s0
 persist.lg.data.iwlan.priv_iid     u:object_r:ipsecd_prop:s0
 persist.lg.data.swandbglv  u:object_r:ipsecd_prop:s0
 persist.net.wo.            u:object_r:ipsecd_prop:s0
-###
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/qcom/sepolicy/common/property_contexts"
-# Copyright (c) 2015-2016 Dolby Laboratories, Inc. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 wc_transport.              u:object_r:bluetooth_prop:s0
 sys.usb_uicc.              u:object_r:uicc_prop:s0
@@ -547,7 +501,7 @@ persist.bluetooth.         u:object_r:bluetooth_prop:s0
 sys.ims.                   u:object_r:qcom_ims_prop:s0
 hw.fm.                     u:object_r:fm_prop:s0
 sys.usf.                   u:object_r:usf_prop:s0
-ro.qc.sdk.us.                 u:object_r:usf_prop:s0
+ro.qc.sdk.us.              u:object_r:usf_prop:s0
 radio.atfwd.               u:object_r:radio_prop:s0
 ctl.qmuxd                  u:object_r:ctl_qmuxd_prop:s0
 ctl.netmgrd                u:object_r:ctl_netmgrd_prop:s0
@@ -556,7 +510,7 @@ ctl.perfd                  u:object_r:perfd_prop:s0
 ctl.gamed                  u:object_r:gamed_prop:s0
 ctl.iop                    u:object_r:perfd_prop:s0
 ctl.vm_bms                 u:object_r:vm_bms_prop:s0
-ro.qualcomm.bluetooth.        u:object_r:bluetooth_prop:s0
+ro.qualcomm.bluetooth.     u:object_r:bluetooth_prop:s0
 ctl.ipacm                  u:object_r:ipacm_prop:s0
 ctl.ipacm-diag             u:object_r:ipacm-diag_prop:s0
 ctl.qti                    u:object_r:qti_prop:s0
@@ -579,7 +533,7 @@ sys.usb.configfs           u:object_r:sys_usb_configfs_prop:s0
 qemu.hw.mainkeys           u:object_r:qemu_hw_mainkeys_prop:s0
 ctl.hbtp                   u:object_r:ctl_hbtp_prop:s0
 sys.audio.init             u:object_r:audio_prop:s0
-ro.alarm_boot                 u:object_r:alarm_boot_prop:s0
+ro.alarm_boot              u:object_r:alarm_boot_prop:s0
 debug.sf.nobootanimation   u:object_r:boot_animation_prop:s0
 debug.gralloc.             u:object_r:debug_gralloc_prop:s0
 persist.net.doxlat         u:object_r:xlat_prop:s0
@@ -590,36 +544,5 @@ wifi.ftmd.                 u:object_r:wififtmd_prop:s0
 ro.bluetooth.              u:object_r:bluetooth_prop:s0
 # WIGIG
 persist.fst.               u:object_r:fst_prop:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-
-#line 1 "device/qcom/sepolicy/msm8996/property_contexts"
-# Copyright (c) 2016, The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#       from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ctl.qvrd                   u:object_r:ctl_qvrd_prop:s0
-#line 1 "out-elsa_nao_us/target/product/elsa/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
-

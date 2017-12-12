@@ -1,31 +1,3 @@
-#
-# Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above copyright
-#       notice, this list of conditions and the following disclaimer in the
-#       documentation and/or other materials provided with the distribution.
-#     * Neither the name of The Linux Foundation nor
-#       the names of its contributors may be used to endorse or promote
-#       products derived from this software without specific prior written
-#       permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-
 # Define fastmmi
 service fastmmi /system/bin/mmi
     user root
@@ -43,6 +15,48 @@ on factory-fs
     mount tmpfs tmpfs /data
 
 on mmi
+    # ========================================================
+    #              This is FFBM only settings.
+    # ========================================================
+
+    # Mount sdcard by default
+    mount vfat /dev/block/mmcblk1p1 /storage/sdcard1
+
+    # Mkdir for factory data files.
+    mkdir /cache/FTM_AP 0750 root root
+    # Sensor settings
+    chmod 0775 /persist/sensors
+    chmod 0664 /persist/sensors/sensors_settings
+    chown system root /persist/sensors/sensors_settings
+    mkdir /data/misc/sensors 0775 system root
+
+    # Create NETMGR daemon socket area
+    mkdir /dev/socket/netmgr 0750 radio radio
+
+    # Start the following services needed for fftm
+    start srvmag_ffbm
+    start surfaceflinger
+    start fastmmi
+    start qcom-usb-sh
+    start logd
+    start debuggerd
+    start debuggerd64
+    start per_mgr
+    start qcom-sh
+    start ril-daemon
+    start config_bluetooth
+    start sensors
+    start media
+    start wcnss-service
+    start qcom-post-boot
+    start rmt_storage
+    start qcom-c_main-sh
+    start irsc_util
+    start qcamerasvr
+    start qcomsysd
+    start ptt_ffbm
+    start tftp_server
+
     # ====================================================================
     #       The follow setting come from "on boot" in init.qcom.rc
     # ====================================================================
@@ -73,7 +87,7 @@ on mmi
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
-    #Create QMUX deamon socket area
+    # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
     mkdir /dev/socket/qmux_audio 0770 media audio
@@ -85,27 +99,25 @@ on mmi
 
     setprop wifi.interface wlan0
 
-    #disable camera read sensors data on FFBM
+    # Disable camera read sensors data on FFBM
     setprop persist.camera.gyro.disable 1
 
-#   Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+    # Define TCP buffer sizes for various networks
+    # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
-
 
     setprop ro.telephony.call_ring.multiple false
 
-    #Remove SUID bit for iproute2 ip tool
+    # Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
-
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
-    #For bridgemgr daemon to inform the USB driver of the correct transport
+    # For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
-#   Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+    # Define TCP buffer sizes for various networks
+    # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,110208
     setprop net.tcp.buffersize.lte     2097152,4194304,8388608,262144,524288,1048576
     setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
@@ -117,12 +129,12 @@ on mmi
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
     setprop net.tcp.buffersize.evdo    4094,87380,524288,4096,16384,262144
 
-    #Assign TCP buffer thresholds to be ceiling value of technology maximums
-    #Increased technology maximums should be reflected here.
+    # Assign TCP buffer thresholds to be ceiling value of technology maximums
+    # Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  8388608
     write /proc/sys/net/core/wmem_max  8388608
 
-    #To allow interfaces to get v6 address when tethering is enabled
+    # To allow interfaces to get v6 address when tethering is enabled
     write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
@@ -167,10 +179,10 @@ on mmi
     hostname localhost
     domainname localdomain
 
-    # set RLIMIT_NICE to allow priorities from 19 to -20
+    # Set RLIMIT_NICE to allow priorities from 19 to -20
     setrlimit 13 40 40
 
-    # Memory management.  Basic kernel parameters, and allow the high
+    # Memory management. Basic kernel parameters, and allow the high
     # level system server to be able to adjust the kernel OOM driver
     # parameters to match how it is managing things.
     write /proc/sys/vm/overcommit_memory 1
@@ -253,47 +265,6 @@ on mmi
     # Define default initial receive window size in segments.
     setprop net.tcp.default_init_rwnd 60
 
-    # ========================================================
-    #              This is FFBM only settings.
-    # ========================================================
-
-    #mount sdcard by default
-    mount vfat /dev/block/mmcblk1p1 /storage/sdcard1
-
-    #mkdir for factory data files.
-    mkdir /cache/FTM_AP 0750 root root
-    #sensor settings
-    chmod 775 /persist/sensors
-    chmod 664 /persist/sensors/sensors_settings
-    chown system root /persist/sensors/sensors_settings
-    mkdir /data/misc/sensors 775 system root
-
-    #Create NETMGR daemon socket area
-    mkdir /dev/socket/netmgr 0750 radio radio
-
-    #Start the following services needed for fftm
-    start qcom-usb-sh
-    start logd
-    start debuggerd
-    start debuggerd64
-    start per_mgr
-    start qcom-sh
-    start ril-daemon
-    start config_bluetooth
-    start sensors
-    start media
-    start srvmag_ffbm
-    start surfaceflinger
-    start fastmmi
-    start wcnss-service
-    start qcom-post-boot
-    start rmt_storage
-    start qcom-c_main-sh
-    start irsc_util
-    start qcamerasvr
-    start qcomsysd
-    start ptt_ffbm
-    start tftp_server
 
 on ffbm
     trigger early-fs

@@ -97,7 +97,7 @@ on init
     mkdir /dev/memcg 0700 root system
     mount cgroup none /dev/memcg memory
     # app mem cgroups, used by activity manager, lmkd and zygote
-    mkdir /dev/memcg/apps/ 0755 system system
+    mkdir /dev/memcg/apps 0755 system system
 
     write /proc/sys/kernel/panic_on_oops 1
     write /proc/sys/kernel/hung_task_timeout_secs 0
@@ -193,7 +193,6 @@ on init
 
     # set system-background to 0775 so SurfaceFlinger can touch it
     chmod 0775 /dev/cpuset/system-background
-
     chmod 0664 /dev/cpuset/foreground/tasks
     chmod 0664 /dev/cpuset/foreground/boost/tasks
     chmod 0664 /dev/cpuset/background/tasks
@@ -201,10 +200,9 @@ on init
     chmod 0664 /dev/cpuset/top-app/tasks
     chmod 0664 /dev/cpuset/tasks
 
-
     # qtaguid will limit access to specific data based on group memberships.
-    #   net_bw_acct grants impersonation of socket owners.
-    #   net_bw_stats grants access to other apps' detailed tagged-socket stats.
+    # net_bw_acct grants impersonation of socket owners.
+    # net_bw_stats grants access to other apps' detailed tagged-socket stats.
     chown root net_bw_acct /proc/net/xt_qtaguid/ctrl
     chown root net_bw_stats /proc/net/xt_qtaguid/stats
 
@@ -280,7 +278,6 @@ on late-init
     trigger early-boot
     trigger boot
 
-
 on post-fs
     start logd
     # once everything is setup, no need to modify /
@@ -354,9 +351,9 @@ on post-fs-data
     # Avoid predictable entropy pool. Carry over entropy from previous boot.
     copy /data/system/entropy.dat /dev/urandom
 
-    # create basic filesystem structure
-    mkdir /data/misc 01771 system misc
-    mkdir /data/misc/bluedroid 02770 bluetooth net_bt_stack
+    # Create basic filesystem structure
+    mkdir /data/misc 1771 system misc
+    mkdir /data/misc/bluedroid 2770 bluetooth net_bt_stack
     # Fix the access permissions and group ownership for 'bt_config.conf'
     chmod 0660 /data/misc/bluedroid/bt_config.conf
     chown bluetooth net_bt_stack /data/misc/bluedroid/bt_config.conf
@@ -378,7 +375,7 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     mkdir /data/misc/user 0771 root root
     mkdir /data/misc/perfprofd 0775 root root
-    # give system access to wpa_supplicant.conf for backup and restore
+    # Give system access to wpa_supplicant.conf for backup and restore
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/local 0751 root root
     mkdir /data/misc/media 0700 media media
@@ -388,7 +385,7 @@ on post-fs-data
     mkdir /data/misc/boottrace 0771 system shell
     mkdir /data/misc/update_engine 0700 root root
     mkdir /data/misc/trace 0700 root root
-    # profile file layout
+    # Profile file layout
     mkdir /data/misc/profiles 0771 system system
     mkdir /data/misc/profiles/cur 0771 system system
     mkdir /data/misc/profiles/ref 0771 system system
@@ -406,24 +403,24 @@ on post-fs-data
     mkdir /data/property 0700 root root
     mkdir /data/tombstones 0771 system system
 
-    # create dalvik-cache, so as to enforce our permissions
+    # Create dalvik-cache, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 root root
     # create the A/B OTA directory, so as to enforce our permissions
     mkdir /data/ota 0771 root root
 
-    # create resource-cache and double-check the perms
+    # Create resource-cache and double-check the perms
     mkdir /data/resource-cache 0771 system system
     chown system system /data/resource-cache
     chmod 0771 /data/resource-cache
 
-    # create the lost+found directories, so as to enforce our permissions
+    # Create the lost+found directories, so as to enforce our permissions
     mkdir /data/lost+found 0770 root root
 
-    # create directory for DRM plug-ins - give drm the read/write access to
+    # Create directory for DRM plug-ins - give drm the read/write access to
     # the following directory.
     mkdir /data/drm 0770 drm drm
 
-    # create directory for MediaDrm plug-ins - give drm the read/write access to
+    # Create directory for MediaDrm plug-ins - give drm the read/write access to
     # the following directory.
     mkdir /data/mediadrm 0770 mediadrm mediadrm
 
@@ -465,19 +462,13 @@ on post-fs-data
     # Check any timezone data in /data is newer than the copy in /system, delete if not.
     exec - system system -- /system/bin/tzdatacheck /system/usr/share/zoneinfo /data/misc/zoneinfo
 
-    # If there is no fs-post-data action in the init.<device>.rc file, you
-    # must uncomment this line, otherwise encrypted filesystems
-    # won't work.
-    # Set indication (checked by vold) that we have finished this action
-    #setprop vold.post_fs_data_done 1
-
 on boot
     # basic network init
     ifup lo
     hostname localhost
     domainname localdomain
 
-    # set RLIMIT_NICE to allow priorities from 19 to -20
+    # Set RLIMIT_NICE to allow priorities from 19 to -20
     setrlimit 13 40 40
 
     # Memory management.  Basic kernel parameters, and allow the high
@@ -620,8 +611,7 @@ on property:security.perf_harden=0
 on property:security.perf_harden=1
     write /proc/sys/kernel/perf_event_paranoid 3
 
-## Daemon processes to be run by init.
-##
+# Daemon processes to be run by init.
 service ueventd /sbin/ueventd
     class core
     critical
@@ -641,11 +631,6 @@ service console /system/bin/sh
     group shell log readproc
     seclabel u:r:shell:s0
 
-on property:ro.debuggable=1
-    # Give writes to anyone for the trace folder on debug builds.
-    # The folder is used to store method traces.
-    chmod 0773 /data/misc/trace
-    start console
 
 service flash_recovery /system/bin/install-recovery.sh
     class main
@@ -657,14 +642,17 @@ service su /sbin/su --daemon
     seclabel u:r:su_daemon:s0
     oneshot
 
+on property:ro.debuggable=1
+    # Give writes to anyone for the trace folder on debug builds.
+    # The folder is used to store method traces.
+    chmod 0773 /data/misc/trace
+    start console
+
 on property:persist.sys.root_access=0
     stop su
- 
 on property:persist.sys.root_access=2
     stop su
- 
 on property:persist.sys.root_access=1
     start su
- 
 on property:persist.sys.root_access=3
     start su

@@ -8,4 +8,4 @@ do
         cat /sys/devices/system/cpu/cpu$i/cpufreq/stats/time_in_state >> /data/logger/time_in_state
     fi
 done
-chmod -h 644 /data/logger/time_in_state
+chmod -h 0644 /data/logger/time_in_state

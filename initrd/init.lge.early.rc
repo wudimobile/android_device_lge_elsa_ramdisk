@@ -1,7 +1,4 @@
-
-########################################
 # CAPP_SECCLK
-########################################
 service lgsecclk /system/bin/lgsecclkserver
     class main
     user system
@@ -9,11 +6,9 @@ service lgsecclk /system/bin/lgsecclkserver
 
 # restart when servicemanager is restarted
 on property:init.svc.servicemanager=restarting
-     restart lgsecclk
+    restart lgsecclk
 
-########################################
 # CAPP_DRM
-########################################
 service lgdrm /system/bin/lgdrmserver
     class main
     user lgdrm
@@ -21,4 +16,4 @@ service lgdrm /system/bin/lgdrmserver
 
 # restart when servicemanager is restarted
 on property:init.svc.servicemanager=restarting
-     restart lgdrm
+    restart lgdrm

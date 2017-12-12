@@ -36,13 +36,6 @@ on property:persist.service.kernel.enable=1
 on property:persist.service.kernel.enable=0
     stop log-kernel
 
-# Enable CC Audit for MDFPP [S]
-on property:vold.decrypt=trigger_restart_framework
-    restart logcat-ccaudit
-
-on property:vold.encrypt_progress=0
-    restart logcat-ccaudit
-
 service logcat-ccaudit /system/bin/sh /system/bin/logger_ccaudit.sh
     class main
     disabled
@@ -54,8 +47,6 @@ on property:persist.service.ccaudit.enable=1
 
 on property:persist.service.ccaudit.enable=0
     stop logcat-ccaudit
-# Enable CC Audit for MDFPP [E]
-
 
 # power log
 service log-power /system/bin/sh /system/bin/logger_power.sh
@@ -84,7 +75,6 @@ on property:persist.service.power.enable=1
 
 on property:persist.service.power.enable=0
     stop log-power
-
 
 # logcat main
 service logcat-main /system/bin/sh /system/bin/logger_main.sh
@@ -207,7 +197,6 @@ on property:persist.service.logger.low=1
     restart logcat-events
     restart logcat-memory
 
-
 on property:persist.service.logger.low=0
     restart log-kernel
     restart log-power
@@ -288,6 +277,7 @@ on property:vold.decrypt=trigger_restart_framework
     restart log-packet
     restart log-xfrm
     restart logcat-memory
+    restart logcat-ccaudit
 
 on property:vold.encrypt_progress=0
     restart log-kernel
@@ -299,6 +289,7 @@ on property:vold.encrypt_progress=0
     restart log-packet
     restart logcat-memory
     restart log-xfrm
+    restart logcat-ccaudit
 
 service presslog /system/bin/presslog
     disabled
@@ -345,15 +336,13 @@ service log-xfrm /system/bin/sh /system/bin/logger_xfrm.sh
     oneshot
     seclabel u:r:log_services:s0
 
-
 on property:persist.service.xfrm.enable=1
     start log-xfrm
 
 on property:persist.service.xfrm.enable=0
     stop log-xfrm
 
-
-#tcpdump - ims packet log
+# tcpdump - ims packet log
 service log-ims /system/bin/sh /system/bin/logger_ims_packet.sh
     class main
     disabled
