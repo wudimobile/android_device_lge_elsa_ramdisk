@@ -8,8 +8,6 @@ dir data 0771
 file default.prop initrd/default.prop 0644
 dir dev 0755
 slink etc /system/etc 0644
-dir ffu 0755
-file ffu/FFUSKHYNIX_H28U74301AMR_E005.BIN initrd/ffu\FFUSKHYNIX_H28U74301AMR_E005.BIN 0644
 file file_contexts.bin initrd/file_contexts.bin 0644
 file fstab.elsa initrd/fstab.elsa 0640
 file fstab.fota initrd/fstab.fota 0640

@@ -12,9 +12,6 @@ on init
     # SD Card Encryption
     setprop ro.ssbd.session /dev/block/bootdevice/by-name/eksst
 
-on early-fs
-    ffu_update
-
 on post-fs
     # Support tuxera exfat filesystem
     insmod /system/lib/modules/texfat.ko
