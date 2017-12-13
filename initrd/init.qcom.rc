@@ -216,6 +216,8 @@ on post-fs-data
     # Create PERFD deamon related dirs
     mkdir /data/misc/perfd 2755 root system
     mkdir /data/system/perfd 2770 root system
+    rm /data/system/perfd/default_values
+    start perfd
 
     # NFC local data and nfcee xml storage
     mkdir /data/nfc 0770 nfc nfc
@@ -687,9 +689,11 @@ service qbcharger /charger -m 1
     oneshot
 
 on property:sys.qbcharger.enable=true
+    write /sys/power/wake_lock QuickBoot
     start qbcharger
 
 on property:sys.qbcharger.enable=false
+    write /sys/power/wake_unlock QuickBoot
     stop qbcharger
 
 service diag_mdlog_start /system/bin/diag_mdlog
@@ -763,6 +767,8 @@ on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
     start cs-post-boot
+    # CPE fw_name used by sound trigger HAL
+    chown media audio /sys/kernel/wcd_cpe0/fw_name
 
 on property:sys.dbg.coresight.enable=1
     write /persist/coresight/enable 1
