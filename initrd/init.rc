@@ -153,31 +153,33 @@ on init
     mkdir /dev/cpuset
     mount cpuset none /dev/cpuset
 
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/mems 0
+
     # this ensures that the cpusets are present and usable, but the device's
     # init.rc must actually set the correct cpus
     mkdir /dev/cpuset/foreground
-    write /dev/cpuset/foreground/cpus 0
     write /dev/cpuset/foreground/mems 0
     mkdir /dev/cpuset/foreground/boost
-    write /dev/cpuset/foreground/boost/cpus 0
     write /dev/cpuset/foreground/boost/mems 0
     mkdir /dev/cpuset/background
-    write /dev/cpuset/background/cpus 0
     write /dev/cpuset/background/mems 0
 
     # system-background is for system tasks that should only run on
     # little cores, not on bigs
     # to be used only by init, so don't change system-bg permissions
     mkdir /dev/cpuset/system-background
-    write /dev/cpuset/system-background/cpus 0
     write /dev/cpuset/system-background/mems 0
 
     mkdir /dev/cpuset/top-app
-    write /dev/cpuset/top-app/cpus 0
     write /dev/cpuset/top-app/mems 0
 
     # change permissions for all cpusets we'll touch at runtime
     chown system system /dev/cpuset
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
     chown system system /dev/cpuset/foreground
     chown system system /dev/cpuset/foreground/boost
     chown system system /dev/cpuset/background
@@ -191,6 +193,7 @@ on init
     chown system system /dev/cpuset/top-app/tasks
 
     # set system-background to 0775 so SurfaceFlinger can touch it
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
     chmod 0775 /dev/cpuset/system-background
     chmod 0664 /dev/cpuset/foreground/tasks
     chmod 0664 /dev/cpuset/foreground/boost/tasks
@@ -226,6 +229,18 @@ on init
     # Linux's execveat() syscall may construct paths containing /dev/fd
     # expecting it to point to /proc/self/fd
     symlink /proc/self/fd /dev/fd
+
+on configure-cpuset
+    # Update foreground and background cpusets
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-2
+    write /dev/cpuset/foreground/cpus 0-2
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuset/camera-daemon/cpus 0-3
+
+on property:sys.boot_completed=1
+    trigger configure-cpuset
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
