@@ -15,17 +15,13 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
-    mkdir /data/misc/dts 0770 media audio
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/usf 0700 system system
     mkdir /data/misc/tloc 0700 system drmrpc
-    mkdir /data/misc/qvop 0660 system system
-    mkdir /data/misc/qvr 0770 system system
     mkdir /data/misc/audio_pp 0771 media audio
 
 on boot
     start rmt_storage
-    start rfs_access
 
     # Access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
@@ -33,7 +29,6 @@ on boot
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chown system drmrpc /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
     write /proc/sys/kernel/sched_boost 1
-    write /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input0/update_fw 1
 
     # Add GPIO control
     write /sys/class/gpio/export 62
@@ -57,22 +52,6 @@ service fingerprintd /system/bin/fingerprintd
     class late_start
     user system
     group system
-
-service qfp-daemon /system/bin/qfp-daemon
-    class late_start
-    user system
-    group system drmrpc diag
-
-service qvop-daemon /system/bin/qvop-daemon
-    class late_start
-    user system
-    group system drmrpc
-
-service qvrd /system/vendor/bin/qvrservice
-    class late_start
-    user system
-    group system camera graphics
-    socket qvrservice stream 0666 system system
 
 # Start up peripheral manager
 service per_mgr /system/bin/pm-service
@@ -113,11 +92,6 @@ service gamed /system/vendor/bin/gamed
    group system
    disabled
    socket gamed seqpacket 0640 system system
-
-service secotad /system/bin/secotad
-   class late_start
-   user system
-   group system
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -179,11 +153,6 @@ service usf_hovering /system/bin/usf_hovering
     disabled
     oneshot
 
-service usf_proximity /system/bin/usf_proximity
-    class late_start
-    user system
-    group system inet audio
-
 service usf_pairing /system/bin/usf_pairing
     user system
     group system inet
@@ -202,62 +171,6 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
     disabled
     oneshot
 
-service pd_mapper /system/vendor/bin/pd-mapper
-     class core
-     disabled
-
-on property:persist.sys.pd_enable=1
-     start pd_mapper
-     write /sys/class/service_locator/service_locator_status 1
-
-on property:persist.sys.pd_enable=0
-     write /sys/class/service_locator/service_locator_status 0
-
-service dts_configurator /system/bin/dts_configurator
-    class late_start
-    user system
-    group system media audio
-    oneshot
-
-service dtseagleservice /system/bin/dts_eagle_service
-    class late_start
-    user system
-    group audio media
-    disabled
-
-on property:init.svc.dts_configurator=stopped
-    start dtseagleservice
-
-service ppd /system/vendor/bin/mm-pp-dpps
-    class late_start
-    user system
-    group system graphics
-    socket pps stream 0660 system system
-    disabled
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
-on property:init.svc.surfaceflinger=restarting
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
-
-service tlocd /system/bin/tloc_daemon
-    class late_start
-    user system
-    group drmrpc gps net_raw
-
 service energy-awareness /system/bin/energy-awareness
     class main
     user root
@@ -268,11 +181,6 @@ service hvdcp_opti /system/bin/hvdcp_opti
     class main
     user root
     group root
-
-service mdtpd /system/vendor/bin/mdtpd
-   class late_start
-   user root
-   group system radio drmrpc
 
 on charger
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"

@@ -1,16 +1,5 @@
-# CAPP_CKERROR_REPORTER
-import init.ckerror.rc
-import init.hdump.rc
-import init.lduma.rc
-# WARN_EXTERNALSD
-import init.warnexternalsd.rc
-# lgstability test
-import init.lge.stability.rc
-
 on post-fs
     mkdir /persist-lg/property 0771 system radio
-    mkdir /persist-lg/autosimlock 0770 system system
-    mkdir /persist-lg/poweron 0775 system system
     mkdir /persist-lg/tmo 0771 radio radio
     # For U+ call-frw
     mkdir /persist-lg/callfw 0770 radio radio
@@ -105,13 +94,6 @@ on post-fs-data
     restorecon_recursive /eri
     restorecon /vzw/quality
     restorecon_recursive /vzw/quality
-    restorecon /carrier
-    restorecon_recursive /carrier
-    restorecon /ve
-    restorecon_recursive /ve
-    restorecon /OneSeg
-    restorecon_recursive /OneSeg
-    restorecon /dev/iwland
     restorecon /data/preload
     restorecon_recursive /data/preload
 
@@ -140,17 +122,6 @@ on property:ro.build.product=h1
 on property:ro.build.product=elsa
     write /proc/sys/net/core/netdev_max_backlog 5000
 
-on property:sbp.bootanim=1
-    start run_cache_res
-
-# Application Manager NTCODE work
-on property:persist.sys.ntcode_list=1
-    start ntcode_listing
-
-# Useless apks delete
-on property:persist.data.sbp.update=1
-    start apk_delete
-
 # Application Manager ENABLE_UNINSTALL
 on property:vold.post_fs_data_done=1
     start enable_uninstall
@@ -163,6 +134,14 @@ on property:init.svc.servicemanager=restarting
 
 on property:vold.decrypt=trigger_shutdown_framework
     start nfskill
+
+# Application Manager NTCODE work
+on property:persist.sys.ntcode_list=1
+    start ntcode_listing
+
+# Customize booting resources
+on property:sbp.load_props_done=1
+    start runtime_boot_res
 
 on property:persist.sys.cota.changed=1
     wait /dev/block/bootdevice/by-name/cust
@@ -185,14 +164,6 @@ on property:persist.lg.data.dsqn=1
 
 on property:persist.lg.data.dsqn=0
     stop dsqn
-on property:lg.data.socks=1
-    start socks
-
-on property:lg.data.socks=0
-    stop socks
-
-on property:persist.sys.carrier=*
-    start property_copy
 
 # SP MIRRORING
 on property:com.lge.splink_screen_off=0
@@ -208,12 +179,6 @@ service shutdownanim /system/bin/shutdownanimation
     user graphics
     group graphics system
     disabled
-    oneshot
-
-# CAPP_NFS
-service nfsserversetup /system/bin/nfsserversetup
-    class late_start
-    user root
     oneshot
 
 # CAPP_MPROFILER
@@ -268,26 +233,6 @@ service ntcode_listing /system/vendor/bin/ntcode_listing.sh
     disabled
     oneshot
 
-# Customize booting resources
-service runtime_boot_res /system/vendor/bin/runtime_boot_res.sh
-    disabled
-    oneshot
-
-# Customize booting resources
-on property:sbp.load_props_done=1
-    start runtime_boot_res
-
-service run_cache_res /system/vendor/bin/runtime_boot_cache_res.sh
-    disabled
-    oneshot
-
-# Useless apks delete
-service apk_delete /system/vendor/bin/apk_delete.sh
-    user root
-    group root
-    disabled
-    oneshot
-
 service cota_update /system/vendor/bin/cota_update.sh
     disabled
     oneshot
@@ -311,10 +256,6 @@ service dsqn /system/bin/dsqn
     disabled
     user root
 
-service socks /system/xbin/redsocks -c /system/etc/redsocks.conf
-    disabled
-    user root
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
         -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
@@ -329,6 +270,13 @@ service rmplb /system/vendor/bin/rmplb.sh
     group root
     disabled
     oneshot
+
+service ccmd /system/bin/ccmd
+    class core
+    user system
+    group system
+    socket ccmd stream 0660 root system
+    seclabel u:r:ccmd:s0
 
 # Sim based property copy
 service property_copy /system/vendor/bin/property_copy.sh

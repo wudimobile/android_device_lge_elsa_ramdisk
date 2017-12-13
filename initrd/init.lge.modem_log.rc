@@ -10,7 +10,7 @@ service lg_dm_router2 /system/bin/lg_dm_router 2
     user system
     group system
     disabled
-    socket Full.DM.port stream 660 system system
+    socket Full.DM.port stream 0660 system system
 
 service lg_odm_service1 /system/bin/lg_odm_service 1
     class late_start
@@ -25,7 +25,7 @@ service lg_odm_service2 /system/bin/lg_odm_service 2
     group system net_raw sdcard_r sdcard_rw media_rw
     disabled
     oneshot
-    socket Full.ODM.port stream 660 system system
+    socket Full.ODM.port stream 0660 system system
 
 on post-fs
     chmod 0660 /dev/lge_dm_tty0

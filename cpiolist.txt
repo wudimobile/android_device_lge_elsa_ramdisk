@@ -45,7 +45,6 @@ file init.usb.rc initrd/init.usb.rc 0750
 file init.zygote32.rc initrd/init.zygote32.rc 0750
 file init.zygote64_32.rc initrd/init.zygote64_32.rc 0750
 dir mnt 0755
-dir oem 0755
 dir proc 0755
 file property_contexts initrd/property_contexts 0644
 dir res 0755

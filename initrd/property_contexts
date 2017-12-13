@@ -222,9 +222,7 @@ ro.cdma.home.operator.alpha    u:object_r:net_radio_prop:s0
 
 # dumprepoter_prop
 ctl.Aat_result         u:object_r:minios_prop:s0
-ctl.charger_monitor    u:object_r:ctl_charger_monitor_prop:s0
 ctl.digicl                u:object_r:ctl_digicl_prop:s0
-ctl.dumpreporter          u:object_r:ctl_dumpreporter_prop:s0
 ctl.decryptwipe           u:object_r:ctl_decryptwipe_prop:s0
 ctl.ipsecclient                 u:object_r:ctl_ipsec_prop:s0
 ctl.irrc_minios        u:object_r:minios_prop:s0
@@ -241,10 +239,8 @@ ctl.minios3_sensor     u:object_r:minios_prop:s0
 ctl.minios3_starter     u:object_r:minios_prop:s0
 ctl.minios3_thermal    u:object_r:minios_prop:s0
 ctl.mtk_selfd                    u:object_r:minios_prop:s0
-ctl.ppd                   u:object_r:ppd_prop:s0
 ctl.qrngp      u:object_r:minios_prop:s0
 ctl.quickdump    u:object_r:ctl_quickdump_prop:s0
-ctl.rfs_access    u:object_r:ctl_rfs_access_prop:s0
 ctl.ril-minios u:object_r:minios_prop:s0
 ctl.rmt_storage    u:object_r:ctl_rmt_storage_prop:s0
 ctl.Selfd_accel        u:object_r:minios_prop:s0
@@ -449,7 +445,6 @@ usb_uicc.enabled                 u:object_r:uicc_prop:s0
 ctl.dpmd                         u:object_r:ctl_dpmd_prop:s0
 ctl.msm_irqbal_lb                u:object_r:ctl_irqbal_lb_prop:s0
 ctl.sdcard                       u:object_r:ctl_fuse_prop:s0
-ctl.RIDL                         u:object_r:ctl_ridl_prop:s0
 mobicore.tbase.loaded            u:object_r:mobicore_prop:s0
 persist.lge.att.remove           u:object_r:wfd_prop:s0
 qc.sdk.us.digitalpen             u:object_r:qualcomm_digitalpen_prop:s0
@@ -471,26 +466,6 @@ persist.camera.use_ais           u:object_r:camera_prop:s0
 sys.camera.hw_test_result        u:object_r:camera_prop:s0
 sys.camera.pd_test.result        u:object_r:camera_prop:s0
 
-# ipsecd prop
-net.handover.flag          u:object_r:ipsecd_prop:s0
-net.iwlan.                 u:object_r:ipsecd_prop:s0
-net.wo.debug.dpd           u:object_r:ipsecd_prop:s0
-net.wo.epdg.               u:object_r:ipsecd_prop:s0
-net.wo.epdg0.              u:object_r:ipsecd_prop:s0
-net.wo.epdg1.              u:object_r:ipsecd_prop:s0
-net.wo.epdg2.              u:object_r:ipsecd_prop:s0
-net.wo.epdg3.              u:object_r:ipsecd_prop:s0
-net.wo.epdg4.              u:object_r:ipsecd_prop:s0
-net.wo.epdg5.              u:object_r:ipsecd_prop:s0
-net.wo.epdg6.              u:object_r:ipsecd_prop:s0
-net.wo.epdg7.              u:object_r:ipsecd_prop:s0
-net.wo.epdg8.              u:object_r:ipsecd_prop:s0
-net.wo.epdg9.              u:object_r:ipsecd_prop:s0
-net.wo.statuscode          u:object_r:ipsecd_prop:s0
-persist.lg.data.iwlan.priv_iid     u:object_r:ipsecd_prop:s0
-persist.lg.data.swandbglv  u:object_r:ipsecd_prop:s0
-persist.net.wo.            u:object_r:ipsecd_prop:s0
-
 wc_transport.              u:object_r:bluetooth_prop:s0
 sys.usb_uicc.              u:object_r:uicc_prop:s0
 dolby.audio.               u:object_r:audio_prop:s0
@@ -500,9 +475,7 @@ hw.fm.                     u:object_r:fm_prop:s0
 sys.usf.                   u:object_r:usf_prop:s0
 ro.qc.sdk.us.              u:object_r:usf_prop:s0
 radio.atfwd.               u:object_r:radio_prop:s0
-ctl.qmuxd                  u:object_r:ctl_qmuxd_prop:s0
 ctl.netmgrd                u:object_r:ctl_netmgrd_prop:s0
-ctl.port-bridge            u:object_r:ctl_port-bridge_prop:s0
 ctl.perfd                  u:object_r:perfd_prop:s0
 ctl.gamed                  u:object_r:gamed_prop:s0
 ctl.iop                    u:object_r:perfd_prop:s0
@@ -519,8 +492,6 @@ ro.sf.lcd_density             u:object_r:sf_lcd_density_prop:s0
 ro.opengles.version           u:object_r:opengles_prop:s0
 ro.qualcomm.bt.hci_transport  u:object_r:bluetooth_prop:s0
 ctl.mdm_helper             u:object_r:mdm_helper_prop:s0
-ctl.mpdecision             u:object_r:mpdecision_prop:s0
-qualcomm.perf.cores_online u:object_r:mpdecision_prop:s0
 netd.fstman.               u:object_r:netd_prop:s0
 location.                  u:object_r:location_prop:s0
 qc.izat.                   u:object_r:location_prop:s0
@@ -541,5 +512,3 @@ wifi.ftmd.                 u:object_r:wififtmd_prop:s0
 ro.bluetooth.              u:object_r:bluetooth_prop:s0
 # WIGIG
 persist.fst.               u:object_r:fst_prop:s0
-
-ctl.qvrd                   u:object_r:ctl_qvrd_prop:s0

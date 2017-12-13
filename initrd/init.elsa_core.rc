@@ -1,7 +1,6 @@
 # Copyright (c) 2009-2012, Code Aurora Forum. All rights reserved.
 
 import /init.elsa_product.rc
-import /init.lge.iwlan.rc
 import /init.lge.modem_log.rc
 import /init.lge.fingerprints.rc
 import /init.lge.sensors.rc
@@ -52,8 +51,6 @@ on boot
     # LGP_DATA_PERFORMANCE_HELPING_CODE
     write /proc/sys/net/ipv4/tcp_adv_win_scale 1
 
-# Bluetooth configuration
-on boot
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwake
@@ -61,14 +58,10 @@ on boot
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/preproto
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/btwake
-    chmod 0660 /proc/bluetooth/sleep/proto
     chmod 0660 /proc/bluetooth/sleep/preproto
     chown bluetooth net_bt_stack /dev/ttyHS99
     chown bluetooth net_bt_stack /dev/ttyHS0
-    chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
-    chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
     chmod 0660 /dev/ttyHS99
-    chmod 0660 /dev/ttyHS0
 
     # Touch_driver
     chown system system /sys/devices/virtual/input/lge_touch/incoming_call
@@ -202,25 +195,6 @@ on boot
     # improve a2dp chopping using vendor command (BCM4358:1 / Others:0)
     setprop service.brcm.bt.chip_check 1
 
-service bdaddr_loader /system/bin/bdaddr_loader
-    class late_start
-    user root
-    group bluetooth net_bt_admin
-    oneshot
-
-service ble_sniff_scan /system/bin/ble_sniff_scan
-    user root
-    group bluetooth net_bt_admin misc net_bt_stack
-    disabled
-    oneshot
-
-# shared transport user space mgr service for Bluetooth, FM and GPS
-service uim /system/bin/brcm-uim-sysfs
-    class late_start
-    user root
-    group bluetooth net_bt_admin
-    oneshot
-
 # LGE FM driver SELinux labeling
 on property:bluetooth.fm.restorecon=1
     restorecon /sys/devices/virtual/video4linux/radio0
@@ -271,14 +245,23 @@ service write_event_log /system/bin/write_event_log 55000
     disabled
     oneshot
 
-service erase_sdenc_meta /system/bin/vdc --wait sdcryptfs erase_remaining_km_meta
+service bdaddr_loader /system/bin/bdaddr_loader
+    class late_start
+    user root
+    group bluetooth net_bt_admin
+    oneshot
+
+service ble_sniff_scan /system/bin/ble_sniff_scan
+    user root
+    group bluetooth net_bt_admin misc net_bt_stack
     disabled
     oneshot
 
-# USB ethernet dhcpcd service
-service dhcpcd_eth0 /system/bin/dhcpcd -aABDKL
+# Shared transport user space mgr service for Bluetooth, FM and GPS
+service uim /system/bin/brcm-uim-sysfs
     class late_start
-    disabled
+    user root
+    group bluetooth net_bt_admin
     oneshot
 
 # elsa devices use BRCM WLAN chipset
@@ -295,25 +278,10 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service iprenew_eth0 /system/bin/dhcpcd -n
-    class late_start
-    disabled
-    oneshot
-
-# VR Performance Daemon
-# sets up initail cpusets for VR Performance Controller
 # PPPOE Feature
 service pppoe_extd /system/bin/pppoe_extd
     user root
     group system radio
-    disabled
-    oneshot
-
-service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
-    disabled
-    oneshot
-
-service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
     disabled
     oneshot
 

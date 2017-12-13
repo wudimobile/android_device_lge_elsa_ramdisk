@@ -2,7 +2,7 @@
 enable=`getprop persist.service.crash.enable`
 e76wa_enable=`getprop persist.service.e76wa.enable`
 
-PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+PATH=/sbin:/system/bin:/system/xbin
 export PATH
 
 enable_trace_events()
@@ -113,7 +113,7 @@ enable_msm8996_dcc_config()
     echo sram > $DCC_PATH/data_sink
     echo  1 > $DCC_PATH/config_reset
 
-    #SPM Registers
+    # SPM Registers
     # CPU0
     echo  0x9980000 7 > $DCC_PATH/config
     echo  0x9980030 4 > $DCC_PATH/config

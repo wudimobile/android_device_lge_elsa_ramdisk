@@ -48,7 +48,6 @@ gpu                                       u:object_r:gpu_service:s0
 hardware                                  u:object_r:hardware_service:s0
 hardware_properties                       u:object_r:hardware_properties_service:s0
 hdmi_control                              u:object_r:hdmi_control_service:s0
-inputflinger                              u:object_r:inputflinger_service:s0
 input_method                              u:object_r:input_method_service:s0
 input                                     u:object_r:input_service:s0
 iphonesubinfo_msim                        u:object_r:radio_service:s0
@@ -275,7 +274,6 @@ wfd.native.mm.service                          u:object_r:wfdservice_service:s0
 extphone                                       u:object_r:radio_service:s0
 qti.ims.ext                                    u:object_r:radio_service:s0
 com.qualcomm.location.izat.IzatService         u:object_r:izat_service:s0
-com.qualcomm.qti.secota.service.SecotaNService u:object_r:secotad_service:s0
 qti.security.seemp                             u:object_r:seemp_service:s0
 seempservice                                   u:object_r:seemp_service:s0
 mdtp                                           u:object_r:mdtpdaemon_service:s0
@@ -288,4 +286,3 @@ wigig                                          u:object_r:wigig_service:s0
 
 com.qualcomm.qti.auth.securesampleauthdaemon   u:object_r:fidotest_service:s0
 com.qualcomm.qti.qseeproxysample               u:object_r:qseeproxysample_service:s0
-android.apps.IQvopService             u:object_r:iqvop_service:s0

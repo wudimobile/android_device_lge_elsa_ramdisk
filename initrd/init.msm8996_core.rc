@@ -2,10 +2,6 @@
 
 # to override this file (device specific .rc)
 import /init.${ro.hardware}_core.rc
-
-# LGE logger service rc
-import /init.lge.log.rc
-
 import /init.lge.atd.rc
 
 # ramoops backup function service
@@ -53,7 +49,6 @@ on fs
     wait /dev/block/bootdevice/by-name/persist
     exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-    restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
     wait /dev/block/bootdevice/by-name/modem
@@ -73,8 +68,6 @@ on fs
 
     # Executing tune2fs to reserve some region in /data.(40MB)
     exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
-
-    chown audioserver audio /persist-lg/audio/full_mixer_paths.xml
 
 on post-fs
     # execute sreadahead daemon to reduce boot-time

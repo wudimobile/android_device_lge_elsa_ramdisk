@@ -78,12 +78,6 @@ on property:persist.service.usbcurrentmax=1
 on property:persist.service.usbcurrentmax=0
     write /sys/class/lge_power/lge_cable_detect/usb_current_max_mode 0
 
-# llk mode
-on property:persist.sys.store_demo_enabled=1
-    write /sys/class/lge_power/lge_sm/store_demo_enabled 1
-on property:persist.sys.store_demo_enabled=0
-    write /sys/class/lge_power/lge_sm/store_demo_enabled 0
-
 # fuel gauge dumper for debug
 service fg-dump /system/bin/sh /system/etc/fg_dump.sh 10 /data/logger/fg.log
     user root
