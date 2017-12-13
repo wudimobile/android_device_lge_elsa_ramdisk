@@ -1274,8 +1274,6 @@
 /system/bin/secure_ui_sample_client		u:object_r:sectest_exec:s0
 /system/vendor/bin/sampleauthdaemon		u:object_r:fidotest_exec:s0
 /sys/kernel/debug/clk/debug_suspend		u:object_r:sysfs_debugfs:s0
-/sys/class/panel/img_tune/sharpness		u:object_r:sysfs_sharpness:s0
-/sys/class/panel/oled/img_tune_mode		u:object_r:img_tune_mode:s0
 /sys/module/wlan/parameters/con_mode		u:object_r:sysfs_con_mode:s0
 /data/misc/location/mq/location-mq-s		u:object_r:location_socket:s0
 /sys/devices/platform/lge-qfprom/lsb		u:object_r:sysfs_lge_qfprom:s0
@@ -1302,7 +1300,6 @@
 /sys/class/video4linux/radio0/fmrx_band		u:object_r:sysfs_radio:s0
 /sys/devices/platform/bcm_ldisc/install		u:object_r:sysfs_bcm_ldisc:s0
 /system/vendor/bin/qseeproxysampledaemon		u:object_r:qseeproxysample_exec:s0
-/sys/devices/virtual/panel/img_tune/cabc		u:object_r:img_tune_mode:s0
 /sys/class/power_supply/ac/charger_timer		u:object_r:sysfs_charger_timer:s0
 /sys/bus/i2c/drivers/anx7418/6-0028/sbu2		u:object_r:sysfs_sbu:s0
 /sys/class/leds/lcd-backlight/brightness		u:object_r:sysfs_lg_leds:s0
@@ -1327,7 +1324,6 @@
 /sys/class/video4linux/radio0/fmrx_comp_scan		u:object_r:sysfs_radio:s0
 /sys/devices/platform/bcm_ldisc/snoop_enable		u:object_r:sysfs_bcm_ldisc:s0
 /sys/devices/platform/bcm_ldisc/fw_patchfile		u:object_r:sysfs_bcm_ldisc:s0
-/sys/devices/virtual/panel/oled/img_tune_mode		u:object_r:img_tune_mode:s0
 /sys/devices/platform/lg_diag_cmd/diag_enable		u:object_r:sysfs_diag_enable:s0
 /sys/devices/platform/msm_hsusb/gadget/wakeup		u:object_r:sysfs_usb_wakeup:s0
 /sys/devices/virtual/panel/img_tune/sharpness		u:object_r:sysfs_sharpness:s0
@@ -1383,7 +1379,10 @@
 /sys/bus/iio/devices/iio:device0/in_anglvel_y_offset		u:object_r:sysfs_device_sensor:s0
 /sys/bus/iio/devices/iio:device0/in_anglvel_z_offset		u:object_r:sysfs_device_sensor:s0
 /sys/devices/virtual/lg_rgb_led/use_patterns/setting	--	u:object_r:sysfs_led_setting:s0
+/sys/devices/virtual/panel/img_tune/cabc            		u:object_r:img_tune_mode:s0
+/sys/devices/virtual/panel/img_tune/color_enhance   		u:object_r:img_tune_mode:s0
 /sys/devices/virtual/panel/img_tune/image_enhance_set		u:object_r:img_tune_mode:s0
+/sys/devices/virtual/panel/img_tune/sharpness	        	u:object_r:sysfs_sharpness:s0
 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor		u:object_r:sysfs_cpufreq:s0
 /sys/devices/virtual/input/lge_fingerprint/spi_prepare		u:object_r:sysfs_fingerprint:s0
 /sys/devices/virtual/input/input3/run_fast_calibration		u:object_r:sysfs_run_fast_calibration:s0
