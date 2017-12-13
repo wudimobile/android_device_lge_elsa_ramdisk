@@ -27,8 +27,10 @@ on property:ril.lge.touch.callstate=2
     write /sys/devices/virtual/input/lge_touch/incoming_call 2
 on property:service.keyguard.status=0
     write /sys/devices/virtual/input/lge_touch/keyguard 0
+    start atd
 on property:service.keyguard.status=1
     write /sys/devices/virtual/input/lge_touch/keyguard 1
+    stop atd
 on property:service.keyguard.status=2
     write /sys/devices/virtual/input/lge_touch/keyguard 1
 
