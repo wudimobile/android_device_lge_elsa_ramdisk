@@ -455,7 +455,7 @@ service qti /system/vendor/bin/qti
     disabled
 
 service sensors /system/bin/sensors.qcom
-    class core
+    class main
     user root
     group root
     disabled
