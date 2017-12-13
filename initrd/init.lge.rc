@@ -99,24 +99,13 @@ on post-fs-data
 on boot
     write /proc/sys/net/core/rmem_max  8388608
     write /proc/sys/net/core/wmem_max  8388608
+    write /proc/sys/net/core/netdev_max_backlog 5000
 
 on property:sys.boot_completed=1
     start rmplb
 
 on run-wallpaper
     exec u:r:wallpaper:s0 -- /sbin/wallpaper
-
-on property:ro.build.product=z2
-    write /proc/sys/net/core/netdev_max_backlog 5000
-
-on property:ro.build.product=p1
-    write /proc/sys/net/core/netdev_max_backlog 5000
-
-on property:ro.build.product=h1
-    write /proc/sys/net/core/netdev_max_backlog 5000
-
-on property:ro.build.product=elsa
-    write /proc/sys/net/core/netdev_max_backlog 5000
 
 # One shot invocation to deal with encrypted volume.
 on defaultcrypto
