@@ -8,7 +8,7 @@ service lg_dm_router1 /system/bin/lg_dm_router 1
 service lg_dm_router2 /system/bin/lg_dm_router 2
     class late_start
     user system
-    group system
+    group system qcom_diag
     disabled
     socket Full.DM.port stream 0660 system system
 

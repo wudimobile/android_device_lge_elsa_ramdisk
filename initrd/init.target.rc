@@ -49,7 +49,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service fingerprintd /system/bin/fingerprintd
     class late_start
     user system
-    group system
+    group input
 
 # Start up peripheral manager
 service per_mgr /system/bin/pm-service
