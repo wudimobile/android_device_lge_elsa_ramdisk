@@ -122,6 +122,18 @@ on property:ro.build.product=h1
 on property:ro.build.product=elsa
     write /proc/sys/net/core/netdev_max_backlog 5000
 
+# One shot invocation to deal with encrypted volume.
+on defaultcrypto
+    exec - root -- /system/bin/vdc --wait cryptfs mountdefaultencrypted
+    # vold will set vold.decrypt to trigger_restart_framework (default
+    # encryption) or trigger_restart_min_framework (other encryption)
+
+# One shot invocation to encrypt unencrypted volumes
+on encrypt
+    start surfaceflinger
+    exec - root -- /system/bin/vdc --wait cryptfs enablecrypto inplace default noui
+    # vold will set vold.decrypt to trigger_restart_framework (default encryption)
+
 # Application Manager ENABLE_UNINSTALL
 on property:vold.post_fs_data_done=1
     start enable_uninstall
@@ -165,6 +177,11 @@ on property:persist.lg.data.dsqn=1
 on property:persist.lg.data.dsqn=0
     stop dsqn
 
+# LGE ADDED
+on property:vold.decrypt=trigger_decryption
+    start surfaceflinger
+    start decrypt
+
 # SP MIRRORING
 on property:com.lge.splink_screen_off=0
     write /sys/class/graphics/fb0/sp_link_backlight_off 0
@@ -173,6 +190,10 @@ on property:com.lge.splink_screen_off=0
 on property:com.lge.splink_screen_off=1
     write /sys/class/graphics/fb0/sp_link_backlight_off 1
     write /sys/devices/virtual/input/lge_touch/sp_link_touch_off 1
+
+on property:persist.sys.carrier=*
+    start property_copy
+
 # CAPP_POWEROFF_ANI
 service shutdownanim /system/bin/shutdownanimation
     class main
@@ -277,6 +298,10 @@ service ccmd /system/bin/ccmd
     group system
     socket ccmd stream 0660 root system
     seclabel u:r:ccmd:s0
+
+service decrypt /system/bin/vdc --wait cryptfs disablecrypto inplace default
+    disabled
+    oneshot
 
 # Sim based property copy
 service property_copy /system/vendor/bin/property_copy.sh

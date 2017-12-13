@@ -278,6 +278,15 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
+# TestMode Daemon for broadcom driver
+service diagd /system/bin/diagd
+    class late_start
+    user root
+    group radio system
+    disabled
+    oneshot
+    socket lsock_diagd stream 0666
+
 # PPPOE Feature
 service pppoe_extd /system/bin/pppoe_extd
     user root

@@ -39,6 +39,7 @@ file init.qcom.sensors.sh initrd/init.qcom.sensors.sh 0750
 file init.qcom.sh initrd/init.qcom.sh 0750
 file init.rc initrd/init.rc 0750
 file init.target.rc initrd/init.target.rc 0750
+file init.trace.rc initrd/init.trace.rc 0750
 file init.time_in_state.sh initrd/init.time_in_state.sh 0750
 file init.usb.configfs.rc initrd/init.usb.configfs.rc 0750
 file init.usb.rc initrd/init.usb.rc 0750

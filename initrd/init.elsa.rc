@@ -8,3 +8,6 @@ import /init.lge.log.rc
 import /init.lge.ima.rc
 import /init.${ro.hardware}.power.rc
 import /init.msm8996_core.rc
+
+# from /system/etc/init
+import /init.trace.rc
