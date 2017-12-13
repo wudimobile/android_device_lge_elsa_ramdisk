@@ -25,11 +25,11 @@ on chargerlogo_exec
     chmod 0666 /persist-lg/chargerlogo/autoboot_nosound
 
     chown root system /sys/class/power_supply/battery/input_current_max
-    chown root system /sys/class/power_supply/battery/input_current_trim
+    chown root system /sys/class/power_supply/battery/input_current_limited
     chown root system /sys/class/power_supply/battery/voltage_min
     chown root system /sys/class/power_supply/battery/input_current_settled
     chmod 0664 /sys/class/power_supply/battery/input_current_max
-    chmod 0664 /sys/class/power_supply/battery/input_current_trim
+    chmod 0664 /sys/class/power_supply/battery/input_current_limited
     chmod 0664 /sys/class/power_supply/battery/voltage_min
     chmod 0664 /sys/class/power_supply/battery/input_current_settled
 
