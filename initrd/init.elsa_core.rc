@@ -43,6 +43,7 @@ on post-fs-data
     chmod 2755 /data/misc/vrperfd
 
 on early-boot
+    write /sys/block/sda/queue/scheduler noop
     write /sys/block/sda/queue/read_ahead_kb 2048
 
 on boot
