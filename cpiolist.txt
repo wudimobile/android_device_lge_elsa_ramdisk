@@ -74,8 +74,6 @@ file seapp_contexts initrd/seapp_contexts 0644
 file selinux_version initrd/selinux_version 0644
 file sepolicy initrd/sepolicy 0644
 file service_contexts initrd/service_contexts 0644
-file set_emmc_size.sh initrd/set_emmc_size.sh 0644
-file set_soc_info.sh initrd/set_soc_info.sh 0644
 dir storage 0751
 dir sys 0755
 dir system 0755

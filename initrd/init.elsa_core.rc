@@ -45,33 +45,12 @@ on early-boot
     write /sys/block/sda/queue/read_ahead_kb 2048
 
 on boot
-    start set_emmc_size
-    start set_soc_info
-    write /proc/sys/net/ipv4/tcp_adv_win_scale 1
-
-on property:persist.sys.emmc_size=32G
-    setprop ro.device.memory.system 0
-    setprop ro.device.memory.internal 32
-
-on property:persist.sys.emmc_size=64G
+    setprop persist.sys.emmc_size 64G
+    setprop ro.soc_info MSM8996
     setprop ro.device.memory.system 0
     setprop ro.device.memory.internal 64
-
-on property:persist.sys.emmc_size=128G
-    setprop ro.device.memory.system 0
-    setprop ro.device.memory.internal 128
-
-service set_emmc_size /system/bin/sh /set_emmc_size.sh
-    class main
-    user root
-    group media_rw system sdcard_rw
-    disabled
-    oneshot
-
-service set_soc_info /system/bin/sh /set_soc_info.sh
-    class main
-    disabled
-    oneshot
+    # LGP_DATA_PERFORMANCE_HELPING_CODE
+    write /proc/sys/net/ipv4/tcp_adv_win_scale 1
 
 # Bluetooth configuration
 on boot
