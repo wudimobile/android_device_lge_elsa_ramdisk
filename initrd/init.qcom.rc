@@ -4,6 +4,8 @@ import /init.qcom.factory.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    # Enable sched boost
+    write /proc/sys/kernel/sched_boost 1
 
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
