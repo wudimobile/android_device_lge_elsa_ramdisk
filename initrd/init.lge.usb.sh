@@ -4,10 +4,6 @@ if [ -e /sys/class/android_usb/f_mass_storage/lun/nofua ];
 then
     echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 fi
-if [ -e /sys/class/android_usb/f_cdrom_storage/lun/nofua ];
-then
-    echo 1  > /sys/class/android_usb/f_cdrom_storage/lun/nofua
-fi
 if [ -e /sys/class/android_usb/f_mass_storage/rom/nofua ];
 then
     echo 1  > /sys/class/android_usb/f_mass_storage/rom/nofua

@@ -45,6 +45,9 @@ on usbdebug-manager
 on property:sys.usb.provisioned=1
     start lge-usb-def-sh
 
+on property:sys.usb.provisioned=1 && property:persist.sys.usb.config=boot
+    setprop persist.sys.usb.config charge_only
+
 # charging
 on property:sys.usb.config=charging
     write /sys/class/android_usb/android0/enable 0
