@@ -340,12 +340,12 @@ on property:persist.env.fastdorm.enabled=true
 service cnd /system/bin/cnd
     class main
     socket cnd stream 0660 root inet
+    group root wakelock
     writepid /dev/cpuset/system-background/tasks
 
 service dpmd /system/bin/dpmd
     class late_start
     socket dpmd stream 0660 root system
-    group system readproc
     writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
@@ -356,6 +356,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system wakelock
     writepid /dev/cpuset/system-background/tasks
 
 service tftp_server /system/bin/tftp_server
@@ -442,7 +443,8 @@ service qmiproxy /system/bin/qmiproxy
 
 service netmgrd /system/bin/netmgrd
     class main
-    disabled
+    user root
+    group root wifi wakelock radio inet
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
