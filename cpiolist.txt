@@ -19,7 +19,6 @@ file init.elsa_product.rc initrd/init.elsa_product.rc 0750
 file init.environ.rc initrd/init.environ.rc 0750
 file init.lge.atd.rc initrd/init.lge.atd.rc 0750
 file init.lge.audio.rc initrd/init.lge.audio.rc 0750
-file init.lge.early.rc initrd/init.lge.early.rc 0750
 file init.lge.fingerprints.rc initrd/init.lge.fingerprints.rc 0750
 file init.lge.fs.rc initrd/init.lge.fs.rc 0750
 file init.lge.ima.rc initrd/init.lge.ima.rc 0750

@@ -155,6 +155,12 @@ on property:persist.data.sbp.update=1
 on property:vold.post_fs_data_done=1
     start enable_uninstall
     start gons_update
+
+# restart when servicemanager is restarted
+on property:init.svc.servicemanager=restarting
+    restart lgdrm
+    restart lgsecclk
+
 on property:vold.decrypt=trigger_shutdown_framework
     start nfskill
 
@@ -233,6 +239,17 @@ service quickdump /system/bin/sh /system/bin/quickdump.sh
     oneshot
     ioprio rt 0
     seclabel u:r:quickdump:s0
+
+# CAPP_DRM
+service lgdrm /system/bin/lgdrmserver
+    class main
+    user lgdrm
+    group lgdrm_acc net_raw
+
+service lgsecclk /system/bin/lgsecclkserver
+    class main
+    user system
+    group system lgdrm_acc sdcard_rw media_rw
 
 # CAPP_NFS
 service nfskill /system/bin/nfskillprocess
