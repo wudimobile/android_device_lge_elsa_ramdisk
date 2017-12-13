@@ -763,8 +763,6 @@ on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
     start cs-post-boot
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/dm-1/queue/read_ahead_kb 512
 
 on property:sys.dbg.coresight.enable=1
     write /persist/coresight/enable 1
