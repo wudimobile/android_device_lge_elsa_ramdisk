@@ -233,6 +233,9 @@ on property:sys.boot_completed=1
     chown bluetooth net_bt_stack /sys/devices/platform/bcm_ldisc/snoop_enable
     start erase_sdenc_meta
 
+    # Change GPU initial power level from 214MHz(level 5) to 133MHz(level 6) for power savings
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/cancun_gpu_range_start_freq 133000000
 
 # change preload directory permission for movetosd about preload app
 service chmod_dp /system/bin/sh /system/etc/change_permission_preload.sh
