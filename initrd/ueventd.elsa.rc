@@ -14,9 +14,9 @@
 /dev/smd6                 0660   system     system
 /dev/smd7                 0660   bluetooth  bluetooth
 /dev/ccid_bridge          0660   system     system
-/dev/ipa                  0660   net_admin  net_admin
-/dev/wwan_ioctl           0660   net_admin  net_admin
-/dev/ipaNatTable          0660   net_admin  net_admin
+/dev/ipa                  0660   radio      radio
+/dev/wwan_ioctl           0660   radio      radio
+/dev/ipaNatTable          0660   radio      radio
 /dev/rmnet_ctrl           0660   usb        usb
 /dev/dpl_ctrl             0660   usb        usb
 
@@ -179,6 +179,9 @@
 
 # NFC Bring up
 /dev/cxd224x-i2c          0660   nfc        nfc
+
+# Kmsg device
+/dev/kmsg                 0620   root       system
 
 # FRP
 /dev/block/platform/soc/624000.ufshc/by-name/persistent        0600    system  system
