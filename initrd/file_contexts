@@ -357,23 +357,6 @@
 /data/misc/mirrorlink(/.*)?		u:object_r:mirrorlink_data_file:s0
 /data/app-system/vmdl[^/]+\.tmp(/.*)?		u:object_r:apk_tmp_file:s0
 /data/app-system/vmdl[^/]+\.tmp/oat(/.*)?		u:object_r:dalvikcache_data_file:s0
-/sys/devices/fd900000.qcom,mdss_mdp/vfps	--	u:object_r:sysfs_vfps:s0
-/sys/devices/f9927000.i2c/i2c-5/5-005a/onoff		u:object_r:sysfs_capsensor:s0
-/sys/devices/f9964000.i2c/i2c-8/8-005a/onoff		u:object_r:sysfs_capsensor:s0
-/sys/devices/f9a55000.*/power_supply/usb(/.*)?		u:object_r:sysfs_usb_supply:s0
-/sys/devices/f9200000.*/power_supply/usb(/.*)?		u:object_r:sysfs_usb_supply:s0
-/sys/devices/f9923000.i2c/i2c-1/1-0036/fuelrst		u:object_r:sysfs_testmode_fuelrst:s0
-/sys/devices/f9925000.i2c/i2c-0/0-0036/fuelrst		u:object_r:sysfs_testmode_fuelrst:s0
-/sys/devices/fd922800.qcom,mdss_dsi/reader_mode		u:object_r:sysfs_lg_reader_mode:s0
-/sys/devices/f9925000.i2c/i2c-0/0-006b/power_supply/ac/charger_timer		u:object_r:sysfs_charger_supply:s0
-/sys/devices/f9923000.i2c/i2c-1/1-006b/power_supply/ac/charger_timer		u:object_r:sysfs_charger_supply:s0
-/sys/devices/f9923000.i2c/i2c-1/1-006b/power_supply/ac/charging_enabled		u:object_r:sysfs_charging_enabled:s0
-/sys/devices/f9925000.i2c/i2c-0/0-006b/power_supply/ac/charging_enabled		u:object_r:sysfs_charging_enabled:s0
-/sys/devices/f9923000.i2c/i2c-1/1-006b/power_supply/battery/safety_timer		u:object_r:sysfs_safety_timer:s0
-/sys/devices/f9925000.i2c/i2c-0/0-006b/power_supply/battery/safety_timer		u:object_r:sysfs_safety_timer:s0
-/sys/devices/f9923000.i2c/i2c-1/1-006b/power_supply/battery/charging_enabled		u:object_r:sysfs_charging_enabled:s0
-/sys/devices/f9925000.i2c/i2c-0/0-006b/power_supply/battery/charging_enabled		u:object_r:sysfs_charging_enabled:s0
-/sys/devices/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary.*/leds/lcd-backlight/brightness		u:object_r:sysfs_lg_leds:s0
 /data/system/lgmdm_log.xml		u:object_r:lgmdm_system_server_only_file:s0
 /persist-lg/multimedia(/.*)?		u:object_r:multimedia_data_file:s0
 /dev/socket/qmux_audio(/.*)?		u:object_r:qmuxd_socket:s0
@@ -1034,10 +1017,6 @@
 /dev/block/bootdevice/by-name/fsc		u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd		u:object_r:ssd_device:s0
 /system/vendor/bin/thermal-engine		u:object_r:thermal-engine_exec:s0
-/sys/bus/i2c/devices/0-0028/onoff		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/6-005a/onoff		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/8-005a/onoff		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/5-005a/onoff		u:object_r:sysfs_capsensor:s0
 /data/system/agree_SoftwareUpdate		u:object_r:softwareUpdate_data_file:s0
 /system/bin/qseecom_assurance_test		u:object_r:sectest_exec:s0
 /sys/kernel/mm/ksm/sleep_millisecs		u:object_r:sysfs_kernel_mm_ksm:s0
@@ -1053,11 +1032,6 @@
 /data/misc/location/mq/location-mq-s		u:object_r:location_socket:s0
 /sys/devices/platform/lge-qfprom/lsb		u:object_r:sysfs_lge_qfprom:s0
 /sys/devices/platform/lge-qfprom/msb		u:object_r:sysfs_lge_qfprom:s0
-/sys/bus/i2c/devices/0-0028/regreset		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/0-0028/download		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/6-005a/regreset		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/6-005a/download		u:object_r:sysfs_capsensor:s0
-/sys/bus/i2c/devices/0-005a/download		u:object_r:sysfs_capsensor:s0
 /sys/kernel/debug/scm_errata/kryo_e76		u:object_r:sysfs_debugfs:s0
 /sys/devices/msm_hsic_host/host_ready		u:object_r:sysfs_hsic_host_rdy:s0
 /sys/devices/platform/lge-qfprom/read		u:object_r:sysfs_lge_qfprom:s0
