@@ -1,6 +1,3 @@
-# This file is imported by init.{ro.hardware}.rc
-
-# to override this file (device specific .rc)
 import /init.${ro.hardware}_core.rc
 import /init.lge.atd.rc
 

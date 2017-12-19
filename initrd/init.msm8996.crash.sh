@@ -1,6 +1,5 @@
 #!/system/bin/sh
 enable=`getprop persist.service.crash.enable`
-e76wa_enable=`getprop persist.service.e76wa.enable`
 
 PATH=/sbin:/system/bin:/system/xbin
 export PATH
@@ -190,14 +189,5 @@ case "$enable" in
     "0")
         disable_trace_events
         disable_msm8996_dcc_config
-        ;;
-esac
-
-case "$e76wa_enable" in
-    "0")
-        echo 0 > /sys/kernel/debug/scm_errata/kryo_e76
-        ;;
-    *)
-        echo 1 > /sys/kernel/debug/scm_errata/kryo_e76
         ;;
 esac

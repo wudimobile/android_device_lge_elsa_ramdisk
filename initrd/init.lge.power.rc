@@ -50,6 +50,8 @@ on boot
     chown system system /sys/class/power_supply/battery/charging_enabled
     # safety timer
     chown system system /sys/class/power_supply/battery/safety_timer_enabled
+    # charging mitigation for mitigation
+    chown system system /sys/class/power_supply/battery/constant_charge_current_max
 
 # Power_BSP, add hard reset property
 on property:persist.lge.hardreset=1

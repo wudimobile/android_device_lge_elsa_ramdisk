@@ -51,9 +51,6 @@ on post-fs-data
     # LGMDM
     mkdir /data/system 0775 system system
     mkdir /data/system/lgmdm 0700 system system
-    # safety_timer hidden menu support
-    chown system system /sys/class/power_supply/battery/safety_timer
-    chown system system /sys/class/power_supply/battery/safety_timer_enabled
     # SP MIRRORING
     chmod 0660 /sys/class/graphics/fb0/sp_link_backlight_off
     chown system system /sys/class/graphics/fb0/sp_link_backlight_off
@@ -65,7 +62,7 @@ on post-fs-data
     mkdir /data/shared 0755 system system
     restorecon /data/shared
     # NTCODE_LISTING
-    mkdir /data/app-system 0771 system sytem
+    mkdir /data/app-system 0771 system system
     # SELinux
     mkdir /data/misc/audit 0750 system system
     mkdir /persist-lg/lgdata 0775 radio radio

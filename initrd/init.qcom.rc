@@ -366,7 +366,7 @@ service rmt_storage /system/bin/rmt_storage
     writepid /dev/cpuset/system-background/tasks
 
 service tftp_server /system/bin/tftp_server
-    class main
+    class core
     user root
     writepid /dev/cpuset/system-background/tasks
 
@@ -680,7 +680,6 @@ service charger /charger
     class charger
     group log system graphics
     seclabel u:r:healthd:s0
-    writepid /dev/cpuset/system-background/tasks
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
@@ -744,7 +743,7 @@ service LKCore-dbg /system/vendor/bin/LKCore
     oneshot
     disabled
     user root
-    group root system log qcom_diag
+    group root system log qcom_diag net_raw
 
 # service for USER
 service LKCore-rel /system/vendor/bin/LKCore

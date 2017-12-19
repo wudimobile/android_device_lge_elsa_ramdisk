@@ -238,6 +238,7 @@ on configure-cpuset
 
 on property:sys.boot_completed=1
     trigger configure-cpuset
+    restorecon_recursive /sys/kernel/debug
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
@@ -257,9 +258,6 @@ on load_persist_props_action
 on single_binary_init_action
     single_binary_init
 
-on update_build_Info_static_action
-    update_build_Info_static
-
 # Indicate to fw loaders that the relevant mounts are up.
 on firmware_mounts_complete
     rm /dev/.booting
@@ -272,7 +270,6 @@ on late-init
 
     # Trigger SBP
     trigger single_binary_init_action
-    trigger update_build_Info_static_action
     # Load properties from /system/ + /factory after fs mount. Place
     # this in another action so that the load will be scheduled after the prior
     # issued fs triggers have completed.
@@ -297,9 +294,6 @@ on post-fs
     mount rootfs rootfs / shared rec
     # Mount default storage into root namespace
     mount none /mnt/runtime/default /storage slave bind rec
-
-    # Make sure /sys/kernel/debug (if present) is labeled properly
-    restorecon_recursive /sys/kernel/debug
 
     # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
