@@ -813,7 +813,7 @@ service surfaceflinger /system/bin/surfaceflinger
     user system
     group graphics drmrpc readproc
     onrestart restart zygote
-    writepid /sys/fs/cgroup/stune/foreground/tasks
+    writepid /dev/stune/foreground/tasks
 
 service uncrypt /system/bin/uncrypt
     class main
