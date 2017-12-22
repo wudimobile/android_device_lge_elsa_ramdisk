@@ -1,29 +1,3 @@
-on init
-    exec u:r:setup_fs:s0 -- /sbin/setup_fs_static \
-        /dev/block/bootdevice/by-name/eri \
-        /dev/block/bootdevice/by-name/operatorlogging \
-        /dev/block/bootdevice/by-name/persdata \
-        no_reboot
-
-on fs
-    mkdir /eri 0771 system radio
-    wait /dev/block/bootdevice/by-name/eri
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/eri
-    mount ext4 /dev/block/bootdevice/by-name/eri /eri nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    mkdir /vzw 0755 system system
-    mkdir /vzw/quality 0755 system system
-    wait /dev/block/bootdevice/by-name/operatorlogging
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/operatorlogging
-    mount ext4 /dev/block/bootdevice/by-name/operatorlogging /vzw/quality nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    mkdir /persdata 0750 system system
-    mkdir /persdata/absolute 0750 system system
-    wait /dev/block/bootdevice/by-name/persdata
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persdata
-    mount ext4 /dev/block/bootdevice/by-name/persdata /persdata/absolute nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-    restorecon_recursive /persdata/absolute
-
 on post-fs-data
     chown system radio /eri
     chmod 0771 /eri

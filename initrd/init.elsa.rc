@@ -3,7 +3,6 @@ import /init.qcom.rc
 
 # to override init.qcom.rc and init.target.rc
 import /init.lge.usb.rc
-import /init.lge.fs.rc
 import /init.lge.log.rc
 import /init.lge.ima.rc
 import /init.${ro.hardware}.power.rc

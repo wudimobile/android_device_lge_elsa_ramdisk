@@ -34,37 +34,20 @@ on property:init.svc.bootanim=stopped
 
 on init
     mkdir /mpt 0755 system system
+    mkdir /vzw 0755 system system
+    mkdir /persdata 0750 system system
+    mkdir /persist 0771 system system
+    mkdir /persist-lg 0771 system system
+    mkdir /sns 0755 system system
+    mkdir /storage 0751 system sdcard_r
 
-    wait /dev/block/bootdevice/by-name/mpt
-    exec u:r:setup_fs:s0 -- /sbin/setup_fs_static \
-        /dev/block/bootdevice/by-name/mpt \
-        no_reboot
+    export EXTERNAL_STORAGE /sdcard
+
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on fs
     mount_all fstab.${ro.hardware}
-
-    wait /dev/block/bootdevice/by-name/persist
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-    mkdir /persist/data 0700 system system
-
-    wait /dev/block/bootdevice/by-name/modem
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-
-    wait /dev/block/bootdevice/by-name/sns
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/sns
-    mount ext4 /dev/block/bootdevice/by-name/sns /sns nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    wait /dev/block/bootdevice/by-name/drm
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/drm
-    mount ext4 /dev/block/bootdevice/by-name/drm /persist-lg nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    wait /dev/block/bootdevice/by-name/mpt
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/mpt
-    mount ext4 /dev/block/bootdevice/by-name/mpt /mpt nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    # Executing tune2fs to reserve some region in /data.(40MB)
-    exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
 
 on post-fs
     # execute sreadahead daemon to reduce boot-time
