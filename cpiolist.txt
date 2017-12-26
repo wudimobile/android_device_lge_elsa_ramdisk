@@ -32,7 +32,6 @@ file init.lge.vrhid.rc initrd/init.lge.vrhid.rc 0750
 file init.msm8996.crash.sh initrd/init.msm8996.crash.sh 0750
 file init.msm8996_core.rc initrd/init.msm8996_core.rc 0750
 file init.qcom.class_core.sh initrd/init.qcom.class_core.sh 0750
-file init.qcom.factory.rc initrd/init.qcom.factory.rc 0750
 file init.qcom.rc initrd/init.qcom.rc 0750
 file init.qcom.sensors.sh initrd/init.qcom.sensors.sh 0750
 file init.qcom.sh initrd/init.qcom.sh 0750
