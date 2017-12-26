@@ -64,9 +64,6 @@ on boot
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/btwake
     chmod 0660 /proc/bluetooth/sleep/preproto
-    chown bluetooth net_bt_stack /dev/ttyHS99
-    chown bluetooth net_bt_stack /dev/ttyHS0
-    chmod 0660 /dev/ttyHS99
 
     # Touch_driver
     chown system system /sys/devices/virtual/input/lge_touch/incoming_call
