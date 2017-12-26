@@ -27,11 +27,9 @@ on property:ril.lge.touch.callstate=2
     write /sys/devices/virtual/input/lge_touch/incoming_call 2
 on property:service.keyguard.status=0
     write /sys/devices/virtual/input/lge_touch/keyguard 0
-    write /sys/devices/system/cpu/cpu2/core_ctl/max_cpus 2
     start atd
 on property:service.keyguard.status=1
     write /sys/devices/virtual/input/lge_touch/keyguard 1
-    write /sys/devices/system/cpu/cpu2/core_ctl/max_cpus 0
     stop atd
 on property:service.keyguard.status=2
     write /sys/devices/virtual/input/lge_touch/keyguard 1
@@ -261,8 +259,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/cancun_gpu_range_start_freq 133000000
 
     # CPU hotplug
-    # Enable all cores on startup
-    setprop service.keyguard.status 2
     insmod /system/lib/modules/core_ctl.ko
     write /sys/devices/system/cpu/cpu0/core_ctl/max_cpus 2
     write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 2
