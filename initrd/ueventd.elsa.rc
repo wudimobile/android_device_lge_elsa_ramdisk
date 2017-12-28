@@ -11,6 +11,7 @@
 /dev/smd6                 0660   system     system
 /dev/smd7                 0660   bluetooth  bluetooth
 /dev/ccid_bridge          0660   system     system
+/dev/cpu_dma_latency	  0660   system	    system
 /dev/ipa                  0660   radio      radio
 /dev/wwan_ioctl           0660   radio      radio
 /dev/ipaNatTable          0660   radio      radio
@@ -26,6 +27,9 @@
 
 # permissions for CSVT
 /dev/smd11                0660   radio      radio
+
+# permissions for pta
+/dev/pta                  0660   system     system
 
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/ttyUSB0              0660   bluetooth  bluetooth
@@ -122,7 +126,8 @@
 /dev/msm_aac_in           0660   system     audio
 /dev/msm_qcelp_in         0660   system     audio
 /dev/msm_evrc_in          0660   system     audio
-/dev/msm_amrnb_in         0640   system     audio
+/dev/msm_amrnb_in         0660   system     audio
+/dev/msm_amrwb_in         0660   system     audio
 /dev/msm_a2dp_in          0660   system     audio
 /dev/msm_ac3              0660   system     audio
 /dev/msm_audio_cal        0660   system     audio
@@ -175,9 +180,6 @@
 
 # Ramdump devices
 /dev/ramdump*             0640   system     system
-
-# Fingerprint device
-/dev/qbt1000              0660   system     system
 
 # NFC Bring up
 /dev/cxd224x-i2c          0660   nfc        nfc

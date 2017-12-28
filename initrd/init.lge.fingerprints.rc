@@ -1,13 +1,13 @@
 on post-fs-data
-# make factory test result directory
+    # make factory test result directory
     mkdir /sns/fingerprint 0775 system system
     mkdir /data/fpc 0755 system system
     restorecon /data/fpc
     mkdir /data/fpc_images 0755 system system
     restorecon /data/fpc_images
 
-# change cucialtec device permission
 on boot
+    # change cucialtec device permission
     chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
     chown system input /sys/devices/virtual/input/lge_fingerprint/spitest
     chown system input /sys/devices/virtual/input/lge_fingerprint/zonetest
