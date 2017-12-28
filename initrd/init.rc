@@ -249,9 +249,6 @@ on load_persist_props_action
     start logd
     start logd-reinit
 
-on single_binary_init_action
-    single_binary_init
-
 # Indicate to fw loaders that the relevant mounts are up.
 on firmware_mounts_complete
     rm /dev/.booting
@@ -262,8 +259,6 @@ on late-init
     trigger fs
     trigger post-fs
 
-    # Trigger SBP
-    trigger single_binary_init_action
     # Load properties from /system/ + /factory after fs mount. Place
     # this in another action so that the load will be scheduled after the prior
     # issued fs triggers have completed.
@@ -794,13 +789,6 @@ service servicemanager /system/bin/servicemanager
     onrestart restart drm
     onrestart restart cameraserver
     writepid /dev/cpuset/system-background/tasks
-
-service shutdownanim /system/bin/shutdownanimation
-    class main
-    user graphics
-    group graphics system
-    disabled
-    oneshot
 
 service surfaceflinger /system/bin/surfaceflinger
     class core
