@@ -184,7 +184,6 @@ emotionled                    u:object_r:surfaceflinger_service:s0
 encryption                    u:object_r:encryption_service:s0
 extensionservice              u:object_r:extensionservice:s0
 fast_download                 u:object_r:fast_download_service:s0
-felica                        u:object_r:nfc_service:s0
 flashlight                    u:object_r:lge_system_server_service:s0
 glanceview                    u:object_r:lge_system_server_service:s0
 gmeminfo                      u:object_r:lge_system_server_service:s0
