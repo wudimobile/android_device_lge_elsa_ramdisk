@@ -27,6 +27,11 @@ on init
     chmod 0755 /sbin
     sysclktz 0
 
+    # Disable UFS powersaving
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled Y
+
     # Mix device-specific information into the entropy pool
     copy /proc/cmdline /dev/urandom
     copy /default.prop /dev/urandom
@@ -233,6 +238,10 @@ on configure-cpuset
 on property:sys.boot_completed=1
     trigger configure-cpuset
     restorecon_recursive /sys/kernel/debug
+    # Enable UFS powersaving
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
+    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
