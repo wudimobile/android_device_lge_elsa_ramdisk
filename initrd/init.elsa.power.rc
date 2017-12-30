@@ -44,15 +44,6 @@ on boot
     # For quick_charging status
     chown root system /sys/module/lge_power_class_charging_controller/parameters/quick_charging_state
     chmod 0664 /sys/module/lge_power_class_charging_controller/parameters/quick_charging_state
-    # setup permissions for fb0 related nodes
-    chown system system /sys/class/graphics/fb0/mdp/vfps
-    chmod 0644 /sys/class/graphics/fb0/mdp/vfps
-    chown system system /sys/class/graphics/fb0/mdp/vfps_fcnt
-    chmod 0644 /sys/class/graphics/fb0/mdp/vfps_fcnt
-    chown system system /sys/class/graphics/fb0/mdp/vfps_ratio
-    chmod 0644 /sys/class/graphics/fb0/mdp/vfps_ratio
-    chown system system /sys/devices/virtual/panel/img_tune/image_enhance_set
-    chmod 0664 /sys/devices/virtual/panel/img_tune/image_enhance_set
 
 # Power_BSP, add hard reset property
 on property:persist.lge.hardreset=1

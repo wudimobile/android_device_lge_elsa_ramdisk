@@ -63,18 +63,44 @@ on boot
     chmod 0660 /proc/bluetooth/sleep/btwake
     chmod 0660 /proc/bluetooth/sleep/preproto
 
+    # Graphic node permissions
+    chown system graphics /sys/devices/virtual/graphics/fb0/mdp/bw_mode_bitmap
+    chown system graphics /sys/devices/virtual/graphics/fb0/mdp/vfps_fcnt
+    chown system graphics /sys/devices/virtual/graphics/fb0/mdp/vfps
+    chown system graphics /sys/devices/virtual/graphics/fb0/mdp/vfps_ratio
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/devices/virtual/graphics/fb0/dyn_pu
+    chown system graphics /sys/devices/virtual/graphics/fb0/modes
+    chown system graphics /sys/devices/virtual/graphics/fb0/mode
+    chown system graphics /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps
+    chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps_fcnt
+    chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps_ratio
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chmod 0664 /sys/devices/virtual/graphics/fb0/dyn_pu
+    chmod 0664 /sys/devices/virtual/graphics/fb0/modes
+    chmod 0664 /sys/devices/virtual/graphics/fb0/mode
+    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+
     # Touch_driver
+    chown system system /sys/devices/virtual/input/lge_touch/keyguard
+    chmod 0664 /sys/devices/virtual/input/lge_touch/keyguard
+    chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
+    chmod 0664 /sys/devices/virtual/input/lge_touch/lpwg_data
+    chown system system /sys/devices/virtual/input/lge_touch/lpwg_notify
+    chmod 0664 /sys/devices/virtual/input/lge_touch/lpwg_notify
+    chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
+    chmod 0664 /sys/devices/virtual/input/lge_touch/quick_cover_status
+    chown system system /sys/devices/virtual/input/lge_touch/q_sensitivity
+    chmod 0664 /sys/devices/virtual/input/lge_touch/q_sensitivity
     chown system system /sys/devices/virtual/input/lge_touch/incoming_call
     chmod 0664 /sys/devices/virtual/input/lge_touch/incoming_call
     chown system system /sys/devices/virtual/input/lge_touch/ime_status
-    chown system lgkeyguard /sys/devices/virtual/input/lge_touch/keyguard
-    chmod 0664 /sys/devices/virtual/input/lge_touch/keyguard
+    chmod 0664 /sys/devices/virtual/input/lge_touch/ime_status
     chown system system /sys/devices/virtual/input/lge_touch/debug_tool
     chmod 0664 /sys/devices/virtual/input/lge_touch/debug_tool
     chown system system /sys/devices/virtual/input/lge_touch/debug_option
     chmod 0664 /sys/devices/virtual/input/lge_touch/debug_option
-    chown system system /sys/devices/virtual/input/lge_touch/onhand
-    chmod 0664 /sys/devices/virtual/input/lge_touch/onhand
 
     # Touch_knock_on
     chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
@@ -111,28 +137,28 @@ on boot
     chmod 0664 /sys/devices/virtual/ext_watch/query_fonteffect
 
     # Begin AOD Display New Feature
-    chown system system /sys/class/graphics/fb0/aod
-    chmod 0664 /sys/class/graphics/fb0/aod
-    chown system system /sys/class/graphics/fb0/keep_aod
-    chmod 0664 /sys/class/graphics/fb0/keep_aod
-    chown system system /sys/class/graphics/fb0/cur_panel_mode
-    chmod 0644 /sys/class/graphics/fb0/cur_panel_mode
+    chown system system /sys/devices/virtual/graphics/fb0/aod
+    chmod 0664 /sys/devices/virtual/graphics/fb0/aod
+    chown system system /sys/devices/virtual/graphics/fb0/keep_aod
+    chmod 0664 /sys/devices/virtual/graphics/fb0/keep_aod
+    chown system system /sys/devices/virtual/graphics/fb0/cur_panel_mode
+    chmod 0644 /sys/devices/virtual/graphics/fb0/cur_panel_mode
     chown system system /sys/class/leds/lcd-backlight-ex/brightness
     chmod 0664 /sys/class/leds/lcd-backlight-ex/brightness
-    chown system system /sys/class/graphics/fb0/ext_off
-    chmod 0664 /sys/class/graphics/fb0/ext_off
-    chown system system /sys/class/graphics/fb0/toggle_u1
-    chmod 0664 /sys/class/graphics/fb0/toggle_u1
-    chown system system /sys/class/graphics/fb0/reader_mode
-    chmod 0664 /sys/class/graphics/fb0/reader_mode
+    chown system system /sys/devices/virtual/graphics/fb0/ext_off
+    chmod 0664 /sys/devices/virtual/graphics/fb0/ext_off
+    chown system system /sys/devices/virtual/graphics/fb0/toggle_u1
+    chmod 0664 /sys/devices/virtual/graphics/fb0/toggle_u1
+    chown system system /sys/devices/virtual/graphics/fb0/reader_mode
+    chmod 0664 /sys/devices/virtual/graphics/fb0/reader_mode
     chown system system /system/bin/AODLayer
     chmod 0664 /system/bin/AODLayer
-    chown system system /sys/class/graphics/fb0/toggle_u1
-    chown system system /sys/class/graphics/fb0/ext_off
+    chown system system /sys/devices/virtual/graphics/fb0/toggle_u1
+    chown system system /sys/devices/virtual/graphics/fb0/ext_off
 
     # Marquee display feature
-    chown system system /sys/class/graphics/fb0/mq_mode
-    chmod 0664 /sys/class/graphics/fb0/mq_mode
+    chown system system /sys/devices/virtual/graphics/fb0/mq_mode
+    chmod 0664 /sys/devices/virtual/graphics/fb0/mq_mode
 
     # Begin High Luminance Mode Features
     chown system system /sys/devices/virtual/graphics/fb0/hl_mode

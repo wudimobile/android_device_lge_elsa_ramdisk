@@ -52,8 +52,8 @@ on post-fs-data
     mkdir /data/system 0775 system system
     mkdir /data/system/lgmdm 0700 system system
     # SP MIRRORING
-    chmod 0660 /sys/class/graphics/fb0/sp_link_backlight_off
-    chown system system /sys/class/graphics/fb0/sp_link_backlight_off
+    chmod 0660 /sys/devices/virtual/graphics/fb0/sp_link_backlight_off
+    chown system system /sys/devices/virtual/graphics/fb0/sp_link_backlight_off
     chmod 0660 /sys/devices/virtual/input/lge_touch/sp_link_touch_off
     chown system system /sys/devices/virtual/input/lge_touch/sp_link_touch_off
     # CAPP_INTEGRITY, LGIS
@@ -166,11 +166,11 @@ on property:vold.decrypt=trigger_decryption
 
 # SP MIRRORING
 on property:com.lge.splink_screen_off=0
-    write /sys/class/graphics/fb0/sp_link_backlight_off 0
+    write /sys/devices/virtual/graphics/fb0/sp_link_backlight_off 0
     write /sys/devices/virtual/input/lge_touch/sp_link_touch_off 0
 
 on property:com.lge.splink_screen_off=1
-    write /sys/class/graphics/fb0/sp_link_backlight_off 1
+    write /sys/devices/virtual/graphics/fb0/sp_link_backlight_off 1
     write /sys/devices/virtual/input/lge_touch/sp_link_touch_off 1
 
 on property:persist.sys.carrier=*
