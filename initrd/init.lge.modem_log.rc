@@ -27,10 +27,6 @@ service lg_odm_service2 /system/bin/lg_odm_service 2
     oneshot
     socket Full.ODM.port stream 0660 system system
 
-on post-fs
-    chmod 0660 /dev/lge_dm_tty0
-    chown system system /dev/lge_dm_tty0
-
 on property:persist.service.odm_log.enable=true
     start lg_dm_router1
 
