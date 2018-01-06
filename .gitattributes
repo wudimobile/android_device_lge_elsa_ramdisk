@@ -1,0 +1,2 @@
+*.rc linguist-language=AIL
+*.sh linguist-language=Shell
