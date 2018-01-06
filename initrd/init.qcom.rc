@@ -479,24 +479,6 @@ on property:ro.data.large_tcp_window_size=true
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
 
-service amp_init /system/bin/amploader -i
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service amp_load /system/bin/amploader -l 7000
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service amp_unload /system/bin/amploader -u
-    class late_start
-    user root
-    disabled
-    oneshot
-
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
@@ -740,31 +722,11 @@ service LKCore-rel /system/vendor/bin/LKCore
     user system
     group system log qcom_diag
 
-# Coresight early boot service
-service cs-early-boot /system/bin/sh /persist/coresight/qdss.agent.sh early-boot /system/etc/init.qcom.debug.sh
-    class core
-    user root
-    oneshot
-
-# Coresight post boot servive
-service cs-post-boot /system/bin/sh /persist/coresight/qdss.agent.sh
-    user root
-    disabled
-    oneshot
-
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed"
     start qcom-post-boot
-    start qti-testscripts
-    start cs-post-boot
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
-
-on property:sys.dbg.coresight.enable=1
-    write /persist/coresight/enable 1
-
-on property:sys.dbg.coresight.enable=0
-    write /persist/coresight/enable 0
 
 service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
