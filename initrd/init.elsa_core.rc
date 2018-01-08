@@ -54,6 +54,10 @@ on boot
     # LGP_DATA_PERFORMANCE_HELPING_CODE
     write /proc/sys/net/ipv4/tcp_adv_win_scale 1
 
+    # IPSec for VOLTE
+    chown root system /dev/socket
+    chmod 0775 /dev/socket
+
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwake
@@ -83,7 +87,7 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
 
     # Touch_driver
-    chown system system /sys/devices/virtual/input/lge_touch/keyguard
+    chown system lgkeyguard /sys/devices/virtual/input/lge_touch/keyguard
     chmod 0664 /sys/devices/virtual/input/lge_touch/keyguard
     chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
     chmod 0664 /sys/devices/virtual/input/lge_touch/lpwg_data

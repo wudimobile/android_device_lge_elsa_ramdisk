@@ -697,7 +697,7 @@ service bugreportremote /system/bin/dumpstate -d -q -B -R -z \
 
 service installd /system/bin/installd
     class main
-    socket installd stream 600 system system
+    socket installd stream 0600 system system
 
 service keystore /system/bin/keystore /data/misc/keystore
     class main
