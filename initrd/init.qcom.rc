@@ -109,6 +109,9 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+
 # MSM specific files that need to be created on /data
 on post-fs-data
     # Create directories for fingerprint
