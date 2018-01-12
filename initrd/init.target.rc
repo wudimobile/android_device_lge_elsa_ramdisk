@@ -1,6 +1,5 @@
 on early-init
     mkdir /firmware 0771 system system
-    symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
 
 on init
@@ -8,6 +7,7 @@ on init
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
+    symlink /data/tombstones /tombstones
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system

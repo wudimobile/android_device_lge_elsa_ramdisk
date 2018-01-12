@@ -243,7 +243,7 @@ on property:persist.service.logsize.enable=0
     restart logcat-memory
 
 # locat setupwizard
-    service logcat-setwiz /system/bin/sh /system/bin/logger_setupwizard.sh
+service logcat-setwiz /system/bin/sh /system/bin/logger_setupwizard.sh
     class main
     disabled
     oneshot

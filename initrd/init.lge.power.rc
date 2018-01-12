@@ -4,7 +4,6 @@ on chargerlogo
     trigger fs
     trigger post-fs
     trigger post-fs-data
-    trigger load_all_props_action
     trigger chargerlogo_exec
 
 on chargerlogo_exec
@@ -44,11 +43,7 @@ on boot
     # pm debug mask enable(clock/resume irq)
     write /sys/kernel/debug/clk/debug_suspend 1
     write /sys/module/msm_show_resume_irq/parameters/debug_mask 1
-    # charger timer
-    chown system system /sys/class/power_supply/ac/charger_timer
-    # charging_enable
     chown system system /sys/class/power_supply/battery/charging_enabled
-    # safety timer
     chown system system /sys/class/power_supply/battery/safety_timer_enabled
     # charging mitigation for mitigation
     chown system system /sys/class/power_supply/battery/constant_charge_current_max
