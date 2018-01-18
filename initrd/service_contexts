@@ -152,7 +152,6 @@ BluetoothService              u:object_r:bluetooth_service:s0
 BtLgeExt                      u:object_r:lge_system_server_service:s0
 CCModeService                 u:object_r:ccmode_service:s0
 DeviceManager3LM              u:object_r:lge_system_server_service:s0
-FeliCaService                 u:object_r:felica_service:s0
 FrpService                    u:object_r:lge_system_server_service:s0
 FingerprintServiceEx          u:object_r:fingerprint_service:s0
 Jphone                        u:object_r:radio_service:s0

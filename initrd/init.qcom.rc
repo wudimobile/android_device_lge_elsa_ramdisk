@@ -49,13 +49,6 @@ on boot
     # Enable camera read sensors data
     setprop persist.camera.gyro.disable 0
 
-    # Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
-    # For bridgemgr daemon to inform the USB driver of the correct transport
-    chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
-
     # Define TCP buffer sizes for various networks
     # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,110208
@@ -89,12 +82,6 @@ on boot
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"
-
-    # Allow access for CCID command/response timeout configuration
-    chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
-
-    # bond0 used by FST Manager
-    chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path

@@ -27,7 +27,6 @@ user=_app seinfo=shared name=com.android.contacts domain=platform_app type=app_d
 user=_app seinfo=shared name=com.lge.email domain=platform_app type=app_data_file
 user=_app seinfo=shared name=com.lge.exchange domain=platform_app type=app_data_file
 user=eas seinfo=platform domain=platform_app type=app_data_file
-user=felicalock seinfo=platform name=com.nttdocomo.android.felicaremotelock domain=nfc type=nfc_data_file
 user=imsvt seinfo=platform name=com.lge.imsvt domain=platform_app type=app_data_file
 user=lg_apps seinfo=platform domain=platform_app type=app_data_file
 user=lgdrm seinfo=platform name=com.lge.drmservice domain=platform_app type=app_data_file

@@ -26,10 +26,6 @@ case "$usb_config" in
     * ) ;; #USB persist config exists, do nothing
 esac
 
-# QCOM
-chown -h root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
-chmod -h 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
-
 # Target as specified in build.prop at compile-time
 target=`getprop ro.board.platform`
 
@@ -41,72 +37,5 @@ else
     soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
 fi
 
-# Check ESOC for external MDM
-# Note: currently only a single MDM is supported
-if [ -d /sys/bus/esoc/devices ]; then
-for f in /sys/bus/esoc/devices/*; do
-    if [ -d $f ]; then
-        esoc_name=`cat $f/esoc_name`
-        if [ "$esoc_name" = "MDM9x25" -o "$esoc_name" = "MDM9x35" ]; then
-            esoc_link=`cat $f/esoc_link`
-            break
-        fi
-    fi
-done
-fi
-
-# Do target specific things
-baseband=`getprop ro.baseband`
-case "$target" in
-    "msm8996")
-        echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
-        echo qti,bam2bam_ipa > /sys/class/android_usb/android0/f_rmnet/transports
-    ;;
-
-    * )
-        echo smd,bam > /sys/class/android_usb/android0/f_rmnet/transports
-        echo 10 > /sys/module/g_android/parameters/rndis_dl_max_pkt_per_xfer
-        echo 5 > /sys/module/g_android/parameters/rndis_ul_max_pkt_per_xfer
-    ;;
-esac
-
-# set module params for embedded rmnet devices
-rmnetmux=`getprop persist.rmnet.mux`
-case "$baseband" in
-    "mdm" | "dsda" | "sglte2")
-        case "$rmnetmux" in
-            "enabled")
-                    echo 1 > /sys/module/rmnet_usb/parameters/mux_enabled
-                    echo 8 > /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links
-                    echo 17 > /sys/module/rmnet_usb/parameters/no_rmnet_insts_per_dev
-            ;;
-        esac
-        echo 1 > /sys/module/rmnet_usb/parameters/rmnet_data_init
-        # Allow QMUX daemon to assign port open wait time
-        chown -h radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
-    ;;
-    "dsda2")
-          echo 2 > /sys/module/rmnet_usb/parameters/no_rmnet_devs
-          echo hsicctl,hsusbctl > /sys/module/rmnet_usb/parameters/rmnet_dev_names
-          case "$rmnetmux" in
-               "enabled") #mux is neabled on both mdms
-                      echo 3 > /sys/module/rmnet_usb/parameters/mux_enabled
-                      echo 8 > /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links
-                      echo 17 > write /sys/module/rmnet_usb/parameters/no_rmnet_insts_per_dev
-               ;;
-               "enabled_hsic") #mux is enabled on hsic mdm
-                      echo 1 > /sys/module/rmnet_usb/parameters/mux_enabled
-                      echo 8 > /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links
-                      echo 17 > /sys/module/rmnet_usb/parameters/no_rmnet_insts_per_dev
-               ;;
-               "enabled_hsusb") #mux is enabled on hsusb mdm
-                      echo 2 > /sys/module/rmnet_usb/parameters/mux_enabled
-                      echo 8 > /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links
-                      echo 17 > /sys/module/rmnet_usb/parameters/no_rmnet_insts_per_dev
-               ;;
-          esac
-          echo 1 > /sys/module/rmnet_usb/parameters/rmnet_data_init
-          # Allow QMUX daemon to assign port open wait time
-          chown -h radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
-    ;;
-esac
+echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
+echo qti,bam2bam_ipa > /sys/class/android_usb/android0/f_rmnet/transports

@@ -60,11 +60,8 @@ on boot
 
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwake
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/proto
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/preproto
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/btwake
     chmod 0660 /proc/bluetooth/sleep/preproto
 
     # Graphic node permissions
