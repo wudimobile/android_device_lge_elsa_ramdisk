@@ -172,7 +172,6 @@
 /data/nvdump(/.*)?	u:object_r:nvdump_data_file:s0
 /data/python(/.*)?	u:object_r:ats_data_file:s0
 /data/logger(/.*)?	u:object_r:logger_data_file:s0
-/data/minios(/.*)?	u:object_r:minios_data_file:s0
 /data/dbdump(/.*)?	u:object_r:atd_data_file:s0
 /vzw/quality(/.*)?	u:object_r:vzw_data_file:s0
 /dev/ramdump_.*		u:object_r:ramdump_device:s0
@@ -190,9 +189,6 @@
 /sys/devices/[^/]+bcl[^/]+(/.*)?	u:object_r:sysfs_thermal:s0
 /dev/mhi_pipe_.*	u:object_r:mhi_device:s0
 /data/fdaf_cal.txt	u:object_r:mm-qcamera_data_file:s0
-/data/sniff_qr.png	u:object_r:minios_data_file:s0
-/data/test-img.jpg	u:object_r:minios_data_file:s0
-/data/misc/AAT.cfg	u:object_r:minios_data_file:s0
 /data/ipsec/wo(/.*)?		u:object_r:ipsec_data_file:s0
 /data/misc/ipa(/.*)?		u:object_r:ipacm_data_file:s0
 /data/misc/iop(/.*)?		u:object_r:iop_data_file:s0
@@ -271,7 +267,6 @@
 /data/system/users/[0-9]+/wallpaper_info.xml		u:object_r:wallpaper_file:s0
 /data/system/users/[0-9]+/wallpaper_pref.xml		u:object_r:wallpaper_file:s0
 /system/bin/widevine(.*)		u:object_r:sectest_exec:s0
-/data/test-camcorder.mp4		u:object_r:minios_data_file:s0
 /persist-lg/widevine(/.*)?		u:object_r:widevine_data_file:s0
 /persist-lg/firmware(/.*)?		u:object_r:firmware_data_file:s0
 /dev/socket/qmux_gps(/.*)?		u:object_r:qmuxd_socket:s0
@@ -329,7 +324,6 @@
 /sys/class/graphics/fb([0-2])+/ad		u:object_r:sysfs_graphics:s0
 /sys/devices/soc/leds-.*/leds(/.*)?		u:object_r:sysfs_lg_leds:s0
 /sys/class/graphics/fb([0-2])+/mdp/caps		u:object_r:sysfs_graphics:s0
-/data/aat_capture_black.png		u:object_r:minios_data_file:s0
 /system/etc/tb_res_conf.txt		u:object_r:system_tb_res_file:s0
 /sys/module/msm_thermal(/.*)?		u:object_r:sysfs_thermal:s0
 /data/misc/sensord_stor(/.*)?		u:object_r:system_sensor_data_file:s0
@@ -367,7 +361,6 @@
 /sys/devices/virtual/ext_watch(/.*)?		u:object_r:sysfs_miniclockfont_file:s0
 /system/etc/wide-dhcpv6/dhcp6c.script		u:object_r:dhcp6c_script_exec:s0
 /sys/devices/msm_dwc3/f9200000.dwc3/gadget/.*/nofua		u:object_r:sysfs_usb_nofua:s0
-/data/factory/aat_capture_black.png		u:object_r:minios_data_file:s0
 /sys/devices/platform/bcm_ldisc(./*)?		u:object_r:sysfs_bcm_ldisc:s0
 /system/vendor/bin/postinstaller.sh		u:object_r:postinstaller_exec:s0
 /system/vendor/bin/apk_op_delete.sh		u:object_r:apk_delete_exec:s0
