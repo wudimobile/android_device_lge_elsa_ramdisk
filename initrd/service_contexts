@@ -213,7 +213,6 @@ lguiccpbm                     u:object_r:radio_service:s0
 logcatcher                    u:object_r:lge_system_server_service:s0
 media.allegro_service         u:object_r:mediaserver_service:s0
 media.media_editor            u:object_r:mediaserver_service:s0
-minios.                       u:object_r:minios_service:s0
 mirrorlinkservice             u:object_r:lge_system_server_service:s0
 mobileHotSpot                 u:object_r:lge_system_server_service:s0
 mobilehotspot                 u:object_r:mobilehotspot_service:s0
