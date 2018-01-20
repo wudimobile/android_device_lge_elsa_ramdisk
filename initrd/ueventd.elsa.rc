@@ -11,6 +11,7 @@
 /dev/ipa                  0660   radio      radio
 /dev/wwan_ioctl           0660   radio      radio
 /dev/ipaNatTable          0660   radio      radio
+/dev/ipa_tethering_bridge 0660   radio      radio
 /dev/rmnet_ctrl           0660   usb        usb
 /dev/rmnet_ctrl1          0660   usb        usb
 /dev/rmnet_ctrl2          0660   usb        usb

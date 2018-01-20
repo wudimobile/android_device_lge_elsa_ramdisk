@@ -102,7 +102,7 @@ on post-fs-data
 
     # Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
-    mkdir /data/misc/ipa 0700 net_admin net_admin
+    mkdir /data/misc/ipa 0770 radio radio
 
     # Create netmgr log dir
     mkdir /data/misc/netmgr 0770 radio radio
@@ -415,18 +415,20 @@ service netmgrd /system/bin/netmgrd
     user root
     group root wifi wakelock radio inet
     group radio system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
-    user system
-    socket ipacm_log_file dgram 0660 system net_admin
-    group net_admin qcom_diag
+    user radio
+    socket ipacm_log_file dgram 0660 radio radio
+    group radio qcom_diag
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service ipacm /system/bin/ipacm
     class main
-    user net_admin
-    group net_admin inet
+    user radio
+    group radio inet
     disabled
     writepid /dev/cpuset/system-background/tasks
 
