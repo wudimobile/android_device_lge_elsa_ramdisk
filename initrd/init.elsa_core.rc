@@ -77,11 +77,11 @@ on boot
     chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps
     chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps_fcnt
     chmod 0644 /sys/devices/virtual/graphics/fb0/mdp/vfps_ratio
-    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
-    chmod 0664 /sys/devices/virtual/graphics/fb0/dyn_pu
-    chmod 0664 /sys/devices/virtual/graphics/fb0/modes
-    chmod 0664 /sys/devices/virtual/graphics/fb0/mode
-    chmod 0664 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
+    chmod 0644 /sys/devices/virtual/graphics/fb0/idle_time
+    chmod 0644 /sys/devices/virtual/graphics/fb0/dyn_pu
+    chmod 0644 /sys/devices/virtual/graphics/fb0/modes
+    chmod 0644 /sys/devices/virtual/graphics/fb0/mode
+    chmod 0644 /sys/devices/virtual/graphics/fb0/msm_cmd_autorefresh_en
 
     # Touch_driver
     chown system lgkeyguard /sys/devices/virtual/input/lge_touch/keyguard

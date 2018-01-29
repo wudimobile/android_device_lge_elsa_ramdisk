@@ -231,7 +231,6 @@ persist.update_avail_time       u:object_r:persist_time_prop:s0
 pre.from.test                   u:object_r:pre_from_test_prop:s0
 pre.gps.value                    u:object_r:pre_gps_value_prop:s0
 pre.qr.display                   u:object_r:pre_qr_display_prop:s0
-radio.noril                      u:object_r:radio_noril_prop:s0
 ro.lge.suffix                    u:object_r:lge_suffix_prop:s0
 sbp.bootanim                     u:object_r:system_prop:s0
 sbp.lge.opname                   u:object_r:system_prop:s0
@@ -253,7 +252,6 @@ sys.lge.                         u:object_r:system_lge_prop:s0
 sys.navibar.                     u:object_r:system_navibar_prop:s0
 sys.radio.gpri.complete          u:object_r:system_radio_gpri_prop:s0
 sys.usb.provisioned              u:object_r:system_lge_prop:s0
-sys.usb.rps_mask                 u:object_r:usb_config_prop:s0
 upgrade.mpdn.db                  u:object_r:radio_prop:s0
 usb.authorized                   u:object_r:usb_authorized_prop:s0
 usb_uicc.loading                 u:object_r:uicc_loading_prop:s0
@@ -295,7 +293,6 @@ usb_uicc.enabled                 u:object_r:uicc_prop:s0
 
 # Etc qcom property
 ctl.dpmd                         u:object_r:ctl_dpmd_prop:s0
-ctl.msm_irqbal_lb                u:object_r:ctl_irqbal_lb_prop:s0
 ctl.sdcard                       u:object_r:ctl_fuse_prop:s0
 mobicore.tbase.loaded            u:object_r:mobicore_prop:s0
 persist.lge.att.remove           u:object_r:wfd_prop:s0

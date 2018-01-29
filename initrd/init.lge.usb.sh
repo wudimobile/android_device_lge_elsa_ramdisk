@@ -26,13 +26,9 @@ case "$usb_config" in
     * ) ;; #USB persist config exists, do nothing
 esac
 
-# Target as specified in build.prop at compile-time
-target=`getprop ro.board.platform`
-
 # Set platform variables
-if [ -d /sys/devices/soc0 ]; then
+if [ -f /sys/devices/soc0/hw_platform ]; then
     soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
-    soc_id=`cat /sys/devices/soc0/soc_id` 2> /dev/null
 else
     soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
 fi

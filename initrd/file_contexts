@@ -154,7 +154,6 @@
 /persist-lg(/.*)?	u:object_r:persist_lg_data_file:s0
 /data/ipsec(/.*)?	u:object_r:ipsec_data_file:s0
 /data/theme(/.*)?	u:object_r:theme_data_file:s0
-/data/tvbox(/.*)?	u:object_r:felica_data_file:s0
 /data/touch(/.*)?	u:object_r:touch_data_file:s0
 /data/lgdrm(/.*)?	u:object_r:lgdrm_data_file:s0
 /dev/iwland(/.*)?	u:object_r:iwland_device:s0
@@ -194,7 +193,6 @@
 /data/misc/iop(/.*)?		u:object_r:iop_data_file:s0
 /data/diag_log(/.*)?		u:object_r:diag_data_file:s0
 /data/hlos_rfs(/.*)?		u:object_r:rfs_shared_hlos_file:s0
-/data/misc/dts(/.*)?		u:object_r:dts_data_file:s0
 /data/recovery(/.*)?		u:object_r:recovery_data_file:s0
 /data/ep/Music(/.*)?		u:object_r:epdrm_data_file:s0
 /data/data/ims(/.*)?		u:object_r:ims_data_file:s0
@@ -229,7 +227,6 @@
 /persist/data/sfs(/.*)?		u:object_r:persist_drm_file:s0
 /persist/hlos_rfs(/.*)?		u:object_r:rfs_shared_hlos_file:s0
 /data/system/lgis(/.*)?		u:object_r:lgis_data_file:s0
-/data/misc/osaifu(/.*)?		u:object_r:osaifu_data_file:s0
 /data/misc/sensor(/.*)?		u:object_r:system_sensor_data_file:s0
 /data/misc/setkey(/.*)?		u:object_r:setkey_data_file:s0
 /data/LGTContents(/.*)?		u:object_r:lgt_data_file:s0
@@ -320,7 +317,6 @@
 /persist-lg/multimedia(/.*)?		u:object_r:multimedia_data_file:s0
 /dev/socket/qmux_audio(/.*)?		u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?		u:object_r:qmuxd_socket:s0
-/data/misc/wide-dhcpv6(/.*)?		u:object_r:wide_dhcpv6_data_file:s0
 /sys/class/graphics/fb([0-2])+/ad		u:object_r:sysfs_graphics:s0
 /sys/devices/soc/leds-.*/leds(/.*)?		u:object_r:sysfs_lg_leds:s0
 /sys/class/graphics/fb([0-2])+/mdp/caps		u:object_r:sysfs_graphics:s0
@@ -359,7 +355,6 @@
 /system/vendor/bin/cota_update.sh		u:object_r:cota_update_exec:s0
 /sys/devices/system/cpu/triton(/.*)?		u:object_r:sysfs_triton:s0
 /sys/devices/virtual/ext_watch(/.*)?		u:object_r:sysfs_miniclockfont_file:s0
-/system/etc/wide-dhcpv6/dhcp6c.script		u:object_r:dhcp6c_script_exec:s0
 /sys/devices/msm_dwc3/f9200000.dwc3/gadget/.*/nofua		u:object_r:sysfs_usb_nofua:s0
 /sys/devices/platform/bcm_ldisc(./*)?		u:object_r:sysfs_bcm_ldisc:s0
 /system/vendor/bin/postinstaller.sh		u:object_r:postinstaller_exec:s0
@@ -819,7 +814,6 @@
 /dev/block/bootdevice/by-name/ssd		u:object_r:ssd_device:s0
 /system/vendor/bin/thermal-engine		u:object_r:thermal-engine_exec:s0
 /data/system/agree_SoftwareUpdate		u:object_r:softwareUpdate_data_file:s0
-/system/bin/qseecom_assurance_test		u:object_r:sectest_exec:s0
 /dev/block/bootdevice/by-name/misc		u:object_r:misc_partition:s0
 /system/vendor/bin/qseeproxydaemon		u:object_r:qseeproxy_exec:s0
 /data/system/pkm/base_measurements		u:object_r:pkm_measurements_file:s0

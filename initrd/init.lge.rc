@@ -107,14 +107,11 @@ on run-wallpaper
 # One shot invocation to deal with encrypted volume.
 on defaultcrypto
     exec - root -- /system/bin/vdc --wait cryptfs mountdefaultencrypted
-    # vold will set vold.decrypt to trigger_restart_framework (default
-    # encryption) or trigger_restart_min_framework (other encryption)
 
 # One shot invocation to encrypt unencrypted volumes
 on encrypt
     start surfaceflinger
     exec - root -- /system/bin/vdc --wait cryptfs enablecrypto inplace default noui
-    # vold will set vold.decrypt to trigger_restart_framework (default encryption)
 
 # Application Manager ENABLE_UNINSTALL
 on property:vold.post_fs_data_done=1
@@ -279,7 +276,6 @@ service ccmd /system/bin/ccmd
     user system
     group system
     socket ccmd stream 0660 root system
-    seclabel u:r:ccmd:s0
 
 service decrypt /system/bin/vdc --wait cryptfs disablecrypto inplace default
     disabled
