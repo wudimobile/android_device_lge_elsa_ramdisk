@@ -22,9 +22,6 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0
 on property:ro.kernel.qemu=1
     start adbd
 
-on boot
-    setprop sys.usb.configfs 0
-
 # Used to disable USB when switching states
 on property:sys.usb.config=none && property:sys.usb.configfs=0
     stop adbd
