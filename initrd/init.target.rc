@@ -159,7 +159,7 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
 
 service energy-awareness /system/bin/energy-awareness
     class main
-    user system
+    user root
     group system
     oneshot
 
