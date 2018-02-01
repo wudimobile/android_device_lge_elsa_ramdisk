@@ -125,7 +125,7 @@
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
 
-# wlan
+# NFC
 /dev/pn547                0660   nfc        nfc
 
 # UIO devices
@@ -141,9 +141,6 @@
 
 # Ramdump devices
 /dev/ramdump*             0640   system     system
-
-# NFC Bring up
-/dev/cxd224x-i2c          0660   nfc        nfc
 
 # Kmsg device
 /dev/kmsg                 0620   root       system
