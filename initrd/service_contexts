@@ -159,7 +159,6 @@ LTECall                       u:object_r:call_server_service:s0
 LgFmService                   u:object_r:lge_system_server_service:s0
 LGP2pService                  u:object_r:lgp2p_service:s0
 MInputService                 u:object_r:minput_service:s0
-MSensorService                u:object_r:msensor_service:s0
 OemExtendedApi3LM             u:object_r:lge_system_server_service:s0
 PowerSaving3LM                u:object_r:lge_system_server_service:s0
 SplitWindowPolicy             u:object_r:lge_system_server_service:s0
