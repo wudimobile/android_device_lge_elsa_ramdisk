@@ -325,6 +325,8 @@ sys.usf.                   u:object_r:usf_prop:s0
 ro.qc.sdk.us.              u:object_r:usf_prop:s0
 radio.atfwd.               u:object_r:radio_prop:s0
 ctl.netmgrd                u:object_r:ctl_netmgrd_prop:s0
+ro.min_freq_0              u:object_r:freq_prop:s0
+ro.min_freq_4              u:object_r:freq_prop:s0
 ctl.perfd                  u:object_r:perfd_prop:s0
 ctl.gamed                  u:object_r:gamed_prop:s0
 ctl.iop                    u:object_r:perfd_prop:s0
