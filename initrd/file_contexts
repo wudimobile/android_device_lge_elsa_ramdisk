@@ -317,6 +317,7 @@
 /persist-lg/multimedia(/.*)?		u:object_r:multimedia_data_file:s0
 /dev/socket/qmux_audio(/.*)?		u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_radio(/.*)?		u:object_r:qmuxd_socket:s0
+/data/misc/port_bridge(/.*)?		u:object_r:port_bridge_data_file:s0
 /sys/class/graphics/fb([0-2])+/ad		u:object_r:sysfs_graphics:s0
 /sys/devices/soc/leds-.*/leds(/.*)?		u:object_r:sysfs_lg_leds:s0
 /sys/class/graphics/fb([0-2])+/mdp/caps		u:object_r:sysfs_graphics:s0
@@ -376,6 +377,7 @@
 /sys/devices/soc/qpnp-smbcharger-16/power_supply/battery/charging_enabled	u:object_r:sysfs_charging_enabled:s0
 /sys/devices/soc/qpnp-smbcharger-16/power_supply/battery/safety_timer_enabled	u:object_r:sysfs_charging_enabled:s0
 /data/system/lgis_general_policies.xml		u:object_r:lgmdm_system_server_only_file:s0
+/sys/firmware/devicetree/base/cpus(/.*)?	u:object_r:sysfs_devices_system_cpu:s0
 /system/vendor/bin/enable_uninstall.sh		u:object_r:enable_uninstall_exec:s0
 /system/vendor/bin/runtime_boot_res.sh		u:object_r:runtime_boot_res_exec:s0
 /data/system/lgmdm_cmdlist_policies.xml		u:object_r:lgmdm_system_server_only_file:s0
