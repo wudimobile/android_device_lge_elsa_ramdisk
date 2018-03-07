@@ -203,7 +203,6 @@
 /proc/bluetooth(/.*)?		u:object_r:bluetooth_proc_file:s0
 /dev/block/vold(/.*)?		u:object_r:vold_block_device:s0
 /data/misc/hbtp(/.*)?		u:object_r:hbtp_log_file:s0
-/data/misc/qsee(/.*)?		u:object_r:data_qsee_file:s0
 /data/data_test(/.*)?		u:object_r:data_test_data_file:s0
 /sys/class/leds(/.*)?		u:object_r:sysfs_lg_leds:s0
 /data/screencap(/.*)?		u:object_r:screencap_data_file:s0
@@ -259,8 +258,6 @@
 /data/misc/location(/.*)?		u:object_r:location_data_file:s0
 /data/misc/stargate(/.*)?		u:object_r:qfp-daemon_data_file:s0
 /sys/bus/msm_subsys(/.*)?		u:object_r:sysfs_ssr:s0
-/data/misc/audio_pp(/.*)?		u:object_r:audio_pp_data_file:s0
-/data/misc/SelfHost(/.*)?		u:object_r:RIDL_data_file:s0
 /data/system/users/[0-9]+/wallpaper_info.xml		u:object_r:wallpaper_file:s0
 /data/system/users/[0-9]+/wallpaper_pref.xml		u:object_r:wallpaper_file:s0
 /system/bin/widevine(.*)		u:object_r:sectest_exec:s0
@@ -342,7 +339,6 @@
 /sys/kernel/debug/fg_memif(/.*)?	u:object_r:sysfs_debugfs:s0
 /sys/kernel/debug/msm_core(/.*)?	u:object_r:sysfs_debugfs:s0
 /dev/socket/qmux_bluetooth(/.*)?	u:object_r:qmuxd_socket:s0
-/data/misc/SelfHost/socket(/.*)?	u:object_r:RIDL_socket:s0
 /data/system/lgis/ir_status.txt		u:object_r:lgmdm_ir_status_file:s0
 /data/local/tmp/\.wdj_config(/.*)?		u:object_r:wdj_config_file:s0
 /data/system/device_policies.xml		u:object_r:lgmdm_system_server_only_file:s0
@@ -630,7 +626,6 @@
 /system/bin/diagd		u:object_r:diagd_exec:s0
 /dev/block/mmcblk0		u:object_r:root_block_device:s0
 /dev/ramdump_venus		u:object_r:ramdump_device:s0
-/system/bin/seempd		u:object_r:seempd_exec:s0
 /system/bin/audiod		u:object_r:audiod_exec:s0
 /system/bin/vm_bms		u:object_r:vm_bms_exec:s0
 /system/bin/fstman		u:object_r:fstman_exec:s0

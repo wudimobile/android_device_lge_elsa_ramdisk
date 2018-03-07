@@ -101,9 +101,6 @@ on post-fs-data
     mkdir /data/misc/stargate/calib_test 0770 system system
     mkdir /data/misc/stargate/database 0770 system system
 
-    # Create directory for TZ Apps
-    mkdir /data/misc/qsee 0770 system system
-
     # Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
     mkdir /data/misc/ipa 0770 radio radio
@@ -115,22 +112,12 @@ on post-fs-data
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
 
-    # Create the directories used by DPM subsystem
-    mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
-    mkdir /data/dpm/nsrm 0771 system system
-    chown system system /data/dpm/nsrm
-
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
     # Create directory for audio delta files
     mkdir /data/misc/audio/acdbdata 0770 media audio
     mkdir /data/misc/audio/acdbdata/delta 0770 media audio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
 
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
@@ -169,14 +156,6 @@ on post-fs-data
 
     # Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
-
-    # RIDL data
-    mkdir /data/misc/SelfHost 0710 system shell
-    mkdir /data/misc/SelfHost/QCLogs 2750 system shell
-    mkdir /data/misc/SelfHost/QCLogs/temp 0700 system shell
-    mkdir /data/misc/SelfHost/storage 0700 system shell
-    mkdir /data/misc/SelfHost/Running 2750 system shell
-    mkdir /data/misc/SelfHost/socket 2770 system system
 
     # Create PERFD deamon related dirs
     mkdir /data/misc/perfd 2755 root system

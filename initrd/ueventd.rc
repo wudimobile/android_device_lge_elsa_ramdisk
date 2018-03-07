@@ -65,8 +65,6 @@ subsystem adf
 /dev/htc-acoustic         0660   system     audio
 /dev/vdec                 0660   system     audio
 /dev/q6venc               0660   system     audio
-/dev/snd/dsp              0660   system     audio
-/dev/snd/dsp1             0660   system     audio
 /dev/snd/mixer            0660   system     audio
 /dev/smd0                 0640   radio      radio
 /dev/qmi                  0640   radio      radio
