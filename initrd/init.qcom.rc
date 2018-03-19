@@ -43,6 +43,12 @@ on boot
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
 
+    # VM BMS
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+
     setprop wifi.interface wlan0
 
     # Define TCP buffer sizes for various networks
@@ -269,13 +275,11 @@ service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
     user root
     oneshot
 
-service qcom-c_main-sh /system/bin/sh /init.class_main.sh
-    class main
-    user root
-    oneshot
-
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
+    start ipacm-diag
+    start ipacm
+    start qti
+    start netmgrd
     start config_bt_addr
 
 on property:persist.env.fastdorm.enabled=true
@@ -603,11 +607,6 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     group system qcom_diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
-
-service vm_bms /system/bin/vm_bms
-    user root
-    group root
-    disabled
 
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core

@@ -8,7 +8,6 @@ on post-fs-data
     mkdir /data/tombstones/lpass 0771 system system
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
-    mkdir /persist/bms 0700 root system
     mkdir /data/misc/seemp 0700 system system
 
 on boot

@@ -11,7 +11,6 @@ slink etc /system/etc 0644
 file file_contexts.bin initrd/file_contexts.bin 0644
 file fstab.elsa initrd/fstab.elsa 0640
 file init initrd/init 0750
-file init.class_main.sh initrd/init.class_main.sh 0750
 file init.elsa.power.rc initrd/init.elsa.power.rc 0750
 file init.elsa.rc initrd/init.elsa.rc 0750
 file init.elsa_core.rc initrd/init.elsa_core.rc 0750
