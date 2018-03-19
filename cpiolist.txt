@@ -26,7 +26,6 @@ file init.lge.power.rc initrd/init.lge.power.rc 0750
 file init.lge.rc initrd/init.lge.rc 0750
 file init.lge.sensors.rc initrd/init.lge.sensors.rc 0750
 file init.lge.usb.rc initrd/init.lge.usb.rc 0750
-file init.lge.usb.sh initrd/init.lge.usb.sh 0750
 file init.lge.vrhid.rc initrd/init.lge.vrhid.rc 0750
 file init.msm8996.crash.sh initrd/init.msm8996.crash.sh 0750
 file init.msm8996_core.rc initrd/init.msm8996_core.rc 0750

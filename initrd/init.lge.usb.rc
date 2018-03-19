@@ -1,4 +1,4 @@
-on init
+on boot
     write /sys/class/android_usb/android0/f_rndis/manufacturer LGE
     write /sys/class/android_usb/android0/f_rndis/vendorID 1004
     write /sys/class/android_usb/android0/f_rndis/wceis 1
@@ -7,17 +7,15 @@ on init
     write /sys/class/android_usb/android0/f_mass_storage/lun/file "/dev/block/mmcblk0p1" 
 
 on fs
+    write /sys/class/android_usb/android0/f_ffs/aliases adb
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    write /sys/class/android_usb/android0/f_ffs/aliases adb
 
-service lge-usb-def-sh /system/bin/sh /init.lge.usb.default.sh
-    class core
-    user root
-    oneshot
-    disabled
-    seclabel u:r:lge-usb-def-sh:s0
+    write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports "BAM2BAM_IPA"
+    write /sys/class/android_usb/android0/f_rmnet/transports "qti,bam2bam_ipa"
+    write /sys/module/g_android/parameters/mtp_tx_req_len 131072
+    write /sys/module/g_android/parameters/mtp_rx_req_len 131072
 
 on usb_debug
     trigger early-fs
