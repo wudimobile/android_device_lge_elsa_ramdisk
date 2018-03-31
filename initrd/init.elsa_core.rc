@@ -269,14 +269,6 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/read_ahead_kb 128
     write /sys/block/sda/queue/scheduler deadline
 
-    # Input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
-    write /sys/module/cpu_boost/parameters/multi_boost_freq "0:1324800 2:1324800"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 80
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1248000
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "85 1500000:90 1800000:70"
-
     # HMP scheduler settings
     write /proc/sys/kernel/sched_upmigrate 80
     write /proc/sys/kernel/sched_downmigrate 60
@@ -286,6 +278,14 @@ on property:sys.boot_completed=1
     # Change GPU initial power level from 214MHz(level 5) to 133MHz(level 6) for power savings
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/cancun_gpu_range_start_freq 133000000
+
+    # Input boost configuration
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
+    write /sys/module/cpu_boost/parameters/multi_boost_freq "0:1324800 2:1324800"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 80
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1248000
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "85 1500000:90 1800000:70"
 
     # CPU hotplug
     insmod /system/lib/modules/core_ctl.ko
