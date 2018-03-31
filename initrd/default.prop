@@ -31,7 +31,7 @@ ro.lge.fmframework.enabled=true
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Tue Oct 31 18:23:27 CST 2017
-ro.bootimage.build.date.utc=1509445407
-ro.bootimage.build.fingerprint=lge/elsa_nao_us/elsa:7.0/NRD90M/173041923ddfd:user/release-keys
+ro.bootimage.build.date=Fri Feb 2 16:01:37 CST 2018
+ro.bootimage.build.date.utc=1517558497
+ro.bootimage.build.fingerprint=lge/elsa_nao_us/elsa:7.0/NRD90M/180331701b134:user/release-keys
 
